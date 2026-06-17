@@ -1,0 +1,10 @@
+plan:
+  id: w3_ecat_icat_plan
+  repo: Admissible-Existence/ECAT-ICAT
+  phase: w3
+  role: ECAT/ICAT formalism
+  status: planned
+  files:
+    - tools/tasks.yaml
+    - validators/w3_data.py
+    - validators/w3.py
