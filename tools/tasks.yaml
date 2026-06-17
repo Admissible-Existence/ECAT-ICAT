@@ -1,0 +1,5 @@
+tasks:
+  - id: w3
+    entry: validators/w3.py
+    runtime: python3
+    fail_on_nonzero_exit: true
