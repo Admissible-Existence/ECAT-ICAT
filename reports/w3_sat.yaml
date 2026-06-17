@@ -1,0 +1,12 @@
+sat:
+  id: ecat_icat_w3_sat
+  repo: Admissible-Existence/ECAT-ICAT
+  phase: w3
+  rows: 5
+  unexpected: 0
+  ok: true
+  commits:
+    plan: a334aa754ab7b78132b8f13d827084224326a563
+    tasks: e933cebad5b4b7fef50d2663451d625ef1ea2a46
+    data: 6d48cab49ed676ababd2680f0ebe7fef60009f07
+    check: 167cf10237d4306a725d7748693376bb11bf2900
