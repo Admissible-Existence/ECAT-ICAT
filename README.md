@@ -2,7 +2,7 @@
 
 ECAT-ICAT is the Admissible Existence repository for defining the human-experience and inter-entity layers of governance constraints before they harden into boundary rules, admissibility decisions, or execution authority.
 
-This repository is currently a formalism seed. Its purpose is to preserve the distinction between emotional/experiential standing, interpersonal/intuitive standing, boundary recoverability, and governance admissibility before implementation, automation, or downstream publication depends on it.
+This repository is now entering formal release-candidate testing. Its purpose is to preserve the distinction between emotional/experiential standing, interpersonal/intuitive standing, boundary recoverability, and governance admissibility before implementation, automation, or downstream publication depends on it.
 
 ## Assumptions
 
@@ -17,6 +17,47 @@ This README uses the following working definitions until this repository contain
 - **Standing** means the current admissible status of a transition, claim, state, or relationship at the moment it is evaluated.
 
 Earlier ECAT/ICAT phrasing treated ECAT as external continuity and ICAT as internal continuity. That reading is now superseded for this repository. External/internal continuity may still appear in proof-path discussions, but this repository's canonical focus is the emotional, experiential, interpersonal, and intuitive origin of governance constraints.
+
+## Current release-candidate status
+
+Status: **0.1.0-rc1 seed in progress**
+
+The repository now includes the first formal testing scaffold:
+
+- `schemas/ecat-profile.schema.json`
+- `schemas/icat-profile.schema.json`
+- `examples/ecat/pass_declared_experience_recoverable.json`
+- `examples/ecat/fail_missing_recoverability.json`
+- `examples/icat/pass_shared_understanding_recoverable.json`
+- `examples/icat/fail_missing_entities.json`
+- `tools/validate_profiles.py`
+- `tests/expected/rc1_validation_report.json`
+- `docs/release-candidate-0.1.0-rc1.md`
+
+The current validator is intentionally minimal and dependency-free. It checks the RC1 fixtures with Python's standard library and produces deterministic JSON output.
+
+## Run validation
+
+From the repository root:
+
+```bash
+python3 tools/validate_profiles.py
+```
+
+Expected RC1 result:
+
+```text
+total fixtures: 4
+valid fixtures: 2
+invalid fixtures: 2
+exit code: 0
+```
+
+The expected output is recorded in:
+
+```text
+tests/expected/rc1_validation_report.json
+```
 
 ## Purpose
 
@@ -140,36 +181,28 @@ When ECAT/ICAT output is carried into admissibility evaluation, use the same hig
 
 A partial ECAT/ICAT failure should not become execution authority unless a policy explicitly defines that partial state as allowable.
 
-## Suggested repository structure
-
-The repository is intentionally small today. As it develops, use this structure unless a more specific implementation requirement emerges:
+## Repository structure
 
 ```text
 /
   README.md
   docs/
-    glossary.md
-    ecat.md
-    icat.md
-    boundary-model.md
-    existence-model.md
-    triad-governance.md
+    release-candidate-0.1.0-rc1.md
   schemas/
     ecat-profile.schema.json
     icat-profile.schema.json
-    existence-profile.schema.json
-    admissibility-relevance.schema.json
-    receipt.schema.json
   examples/
     ecat/
+      pass_declared_experience_recoverable.json
+      fail_missing_recoverability.json
     icat/
-    round-trip/
+      pass_shared_understanding_recoverable.json
+      fail_missing_entities.json
   tests/
-    fixtures/
     expected/
+      rc1_validation_report.json
   tools/
-    validate_ecat.py
-    validate_icat.py
+    validate_profiles.py
 ```
 
 ## Minimum ECAT profile fields
@@ -178,13 +211,10 @@ An ECAT profile should declare:
 
 - entity identifier;
 - context;
-- observed or declared internal state;
-- emotional/experiential indicators;
-- coherence notes;
-- intuition or perception notes;
-- recoverability profile;
+- declared experience;
+- coherence status;
+- recoverability status;
 - boundary relevance;
-- evidence or witness references, if applicable;
 - validity window;
 - limitations;
 - receipt reference.
@@ -195,13 +225,11 @@ An ICAT profile should declare:
 
 - entities involved;
 - relationship or interaction context;
-- trust/delegation/consent relevance;
-- shared-understanding notes;
-- intuition or interpersonal signal notes;
-- continuity notes;
+- declared relationship context;
+- shared-understanding status;
+- trust relevance;
+- recoverability status;
 - boundary relevance;
-- recoverability profile;
-- evidence or witness references, if applicable;
 - validity window;
 - limitations;
 - receipt reference.
@@ -224,9 +252,9 @@ The first formal release should be considered complete only when the repository 
 
 ## Current status
 
-Status: **Formalism seed**
+Status: **Release candidate seed**
 
-The current repository state is sufficient for README-level vocabulary anchoring and scope definition, but not yet sufficient for schema validation, automated testing, or release claims.
+The current repository state is sufficient for initial schema and fixture validation. It is not yet sufficient for a formal release claim.
 
 ## Safety posture
 
