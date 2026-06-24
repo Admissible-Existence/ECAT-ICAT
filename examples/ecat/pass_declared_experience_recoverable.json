@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "profile_id": "ecat-pass-001",
+  "layer": "ECAT",
+  "entity_id": "entity-alpha",
+  "context": "Pre-boundary review before a proposed commitment candidate is formed.",
+  "declared_experience": "The entity reports stable understanding of the proposed boundary and can pause or withdraw before commitment.",
+  "coherence_status": "coherent",
+  "recoverability_status": "recoverable",
+  "boundary_relevance": "Supports later BCAT review because the boundary can be revisited without forcing execution.",
+  "validity_window": {
+    "from": "2026-06-24T00:00:00Z",
+    "until": "2026-07-01T00:00:00Z"
+  },
+  "limitations": [
+    "This is a declared governance profile, not a diagnostic record.",
+    "This profile does not grant execution authority by itself."
+  ],
+  "receipt_id": "receipt-ecat-pass-001"
+}
