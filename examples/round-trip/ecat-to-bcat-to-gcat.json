@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "example_id": "roundtrip-ecat-bcat-gcat-001",
+  "source_profile": "examples/ecat/pass_declared_experience_recoverable.json",
+  "path": [
+    {
+      "layer": "ECAT",
+      "status": "profile-valid",
+      "meaning": "Declared experience is coherent and recoverable enough to support boundary review."
+    },
+    {
+      "layer": "BCAT",
+      "status": "boundary-reviewable",
+      "meaning": "The boundary can be evaluated without forcing execution."
+    },
+    {
+      "layer": "GCAT",
+      "status": "non-authoritative-allow-for-review",
+      "meaning": "The record may continue to governance review, but does not grant execution authority."
+    }
+  ],
+  "final_result": "ALLOW_REVIEW_ONLY",
+  "limitations": [
+    "This example permits review only.",
+    "Commit-time authority must still be independently determined."
+  ]
+}
