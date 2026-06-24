@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "profile_id": "icat-fail-001",
+  "layer": "ICAT",
+  "interaction_context": "Malformed fixture for validator testing.",
+  "declared_relationship_context": "Required entities field is intentionally absent.",
+  "shared_understanding_status": "unknown",
+  "trust_relevance": "Cannot support review because the fixture is incomplete.",
+  "recoverability_status": "unknown",
+  "boundary_relevance": "Cannot support later BCAT review because the record is malformed.",
+  "validity_window": {
+    "from": "2026-06-24T00:00:00Z",
+    "until": "2026-07-01T00:00:00Z"
+  },
+  "limitations": [
+    "Intentional failing fixture: entities is missing."
+  ],
+  "receipt_id": "receipt-icat-fail-001"
+}
