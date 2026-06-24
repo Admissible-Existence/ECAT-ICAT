@@ -25,6 +25,7 @@ The workflow runs:
 ```bash
 python3 tools/validate_profiles.py
 python3 tools/check_expected.py
+python3 tools/check_schema_conformance.py
 python3 tools/check_release_ready.py
 ```
 
@@ -34,6 +35,7 @@ The release candidate is internally consistent when:
 
 - `tools/validate_profiles.py` reports 4 fixtures, 2 valid, and 2 invalid;
 - `tools/check_expected.py` reports `expected_match`;
+- `tools/check_schema_conformance.py` reports 4 matches and 0 mismatches;
 - `tools/check_release_ready.py` reports `release_ready: true`;
 - README, glossary, schema boundary notes, examples, expected output, and release notes agree on RC1 vocabulary;
 - the RC1 validation workflow completes successfully.
@@ -55,9 +57,11 @@ The release candidate is internally consistent when:
 - `examples/existence/percent-existence-example.json`
 - `tests/expected/rc1_validation_report.json`
 - `tests/expected/rc1_release_ready_report.json`
+- `tests/expected/rc1_schema_conformance_report.json`
 - `tests/README.md`
 - `tools/validate_profiles.py`
 - `tools/check_expected.py`
+- `tools/check_schema_conformance.py`
 - `tools/check_release_ready.py`
 - `github/workflows/rc1-validation.yml`
 - `iosnoperiod/github/workflows/rc1-validation.yml`
@@ -67,13 +71,12 @@ Note: any path above that corresponds to a canonical leading-period repository p
 
 ## Manual task reduction
 
-Manual validation is no longer required for normal repo changes. A push or pull request now invokes profile validation, expected-output comparison, and release-readiness structure checks automatically.
+Manual validation is no longer required for normal repo changes. A push or pull request now invokes profile validation, expected-output comparison, schema-conformance checking, and release-readiness structure checks automatically.
 
 ## Release blockers remaining
 
 Before formal release, the repo still needs:
 
 - fixture receipt hashes or an automated receipt-generation path accepted by the repo safety posture;
-- schema validation against full JSON Schema instead of the minimal standard-library subset;
 - tagged release notes;
 - license decision.
