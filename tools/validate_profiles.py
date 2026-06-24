@@ -57,6 +57,13 @@ ALLOWED = {
 }
 
 
+def profile_paths() -> list[Path]:
+    """Return only ECAT/ICAT profile fixtures for RC1 validation."""
+    return sorted((ROOT / "examples" / "ecat").glob("*.json")) + sorted(
+        (ROOT / "examples" / "icat").glob("*.json")
+    )
+
+
 def load_json(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
     try:
         with path.open("r", encoding="utf-8") as handle:
@@ -135,16 +142,19 @@ def validate_path(path: Path) -> dict[str, Any]:
     }
 
 
-def main() -> int:
-    paths = sorted((ROOT / "examples").glob("*/*.json"))
-    results = [validate_path(path) for path in paths]
-    summary = {
+def build_summary() -> dict[str, Any]:
+    results = [validate_path(path) for path in profile_paths()]
+    return {
         "schema_version": "0.1.0-rc1",
         "total": len(results),
         "valid": sum(1 for item in results if item["valid"]),
         "invalid": sum(1 for item in results if not item["valid"]),
         "results": results,
     }
+
+
+def main() -> int:
+    summary = build_summary()
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0 if summary["valid"] == 2 and summary["invalid"] == 2 else 1
 
