@@ -4,7 +4,7 @@
 
 Version: `0.1.0-rc1`
 
-Status: **automated testing active**
+Status: **automated testing and receipt publication active**
 
 ## Automated validation
 
@@ -26,8 +26,17 @@ The workflow runs:
 python3 tools/validate_profiles.py
 python3 tools/check_expected.py
 python3 tools/check_schema_conformance.py
+python3 tools/check_receipt_generation.py
 python3 tools/check_release_ready.py
 ```
+
+The workflow then generates and uploads:
+
+```text
+receipts/rc1-artifact-receipts.sha256
+```
+
+as the `rc1-artifact-receipts` workflow artifact.
 
 ## Current pass condition
 
@@ -36,9 +45,11 @@ The release candidate is internally consistent when:
 - `tools/validate_profiles.py` reports 4 fixtures, 2 valid, and 2 invalid;
 - `tools/check_expected.py` reports `expected_match`;
 - `tools/check_schema_conformance.py` reports 4 matches and 0 mismatches;
+- `tools/check_receipt_generation.py` reports `receipt_generation_documented`;
 - `tools/check_release_ready.py` reports `release_ready: true`;
 - README, glossary, schema boundary notes, examples, expected output, and release notes agree on RC1 vocabulary;
-- the RC1 validation workflow completes successfully.
+- the RC1 validation workflow completes successfully;
+- the workflow publishes the `rc1-artifact-receipts` artifact.
 
 ## Included proof artifacts
 
@@ -46,6 +57,11 @@ The release candidate is internally consistent when:
 - `docs/schema-boundaries.md`
 - `docs/release-candidate-0.1.0-rc1.md`
 - `docs/receipt-plan.md`
+- `docs/receipt-automation.md`
+- `docs/rc1-artifact-list.md`
+- `docs/release-notes-0.1.0-rc1.md`
+- `docs/license-decision.md`
+- `docs/release-plan.md`
 - `schemas/ecat-profile.schema.json`
 - `schemas/icat-profile.schema.json`
 - `examples/ecat/pass_declared_experience_recoverable.json`
@@ -62,21 +78,21 @@ The release candidate is internally consistent when:
 - `tools/validate_profiles.py`
 - `tools/check_expected.py`
 - `tools/check_schema_conformance.py`
+- `tools/check_receipt_generation.py`
 - `tools/check_release_ready.py`
 - `github/workflows/rc1-validation.yml`
 - `iosnoperiod/github/workflows/rc1-validation.yml`
 - `iosnoperiod/README.md`
+- `LICENSE`
 
 Note: any path above that corresponds to a canonical leading-period repository path is displayed without the leading period for iOS compatibility.
 
 ## Manual task reduction
 
-Manual validation is no longer required for normal repo changes. A push or pull request now invokes profile validation, expected-output comparison, schema-conformance checking, and release-readiness structure checks automatically.
+Manual validation is no longer required for normal repo changes. A push or pull request now invokes profile validation, expected-output comparison, schema-conformance checking, receipt-readiness checking, release-readiness structure checking, and receipt artifact publication automatically.
 
 ## Release blockers remaining
 
 Before formal release, the repo still needs:
 
-- fixture receipt hashes or an automated receipt-generation path accepted by the repo safety posture;
-- tagged release notes;
-- license decision.
+- optional GitHub release/tag publication after workflow success.
