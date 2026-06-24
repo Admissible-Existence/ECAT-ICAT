@@ -2,7 +2,7 @@
   "missing": [],
   "missing_count": 0,
   "release_ready": true,
-  "required_count": 23,
+  "required_count": 26,
   "schema_version": "0.1.0-rc1",
   "scope": "rc1-structure-readiness"
 }
