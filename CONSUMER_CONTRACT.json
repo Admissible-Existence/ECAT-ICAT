@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "contract_id": "ecat-icat-rc1-consumer-contract",
+  "consumer_role": "ecosystem_management_layer",
+  "primary_entrypoint": "MANAGEMENT_INTAKE.json",
+  "required_inputs": [
+    "MANAGEMENT_INTAKE.json",
+    "GOAL_ACTIVATION.v2.json",
+    "HANDOFF_PACKET.json",
+    "RELEASE_CANDIDATE.md"
+  ],
+  "required_workflow_result": {
+    "workflow": "github/workflows/rc1-validation.yml",
+    "note": "Displayed without leading period for iOS compatibility. Canonical path begins with a leading period.",
+    "required_conclusion": "success"
+  },
+  "required_artifacts": [
+    {
+      "name": "rc1-artifact-receipts",
+      "path": "receipts/rc1-artifact-receipts.sha256",
+      "purpose": "SHA-256 receipt list for RC1 artifacts generated during workflow execution."
+    }
+  ],
+  "completion_decision": {
+    "complete_when_workflow_success": true,
+    "handoff_ready_when_workflow_not_confirmed": true,
+    "manual_validation_required": false
+  },
+  "next_allowed_actions": [
+    "publish_release_candidate",
+    "continue_development_under_same_goal",
+    "route_to_master_records_ingestion"
+  ]
+}
