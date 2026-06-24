@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "intake_id": "ecat-icat-rc1-management-intake",
+  "intake_type": "release_candidate_management",
+  "goal_file": "GOAL_ACTIVATION.v2.json",
+  "handoff_file": "HANDOFF_PACKET.json",
+  "release_status_file": "RELEASE_CANDIDATE.md",
+  "workflow_file": "github/workflows/rc1-validation.yml",
+  "workflow_file_note": "Displayed without leading period for iOS compatibility. Canonical path begins with a leading period.",
+  "receipt_artifact_name": "rc1-artifact-receipts",
+  "receipt_artifact_path": "receipts/rc1-artifact-receipts.sha256",
+  "required_checks": [
+    "validate_profiles",
+    "check_expected",
+    "check_schema_conformance",
+    "check_receipt_generation",
+    "check_management_handoff",
+    "check_release_ready"
+  ],
+  "completion_policy": {
+    "manual_validation_required": false,
+    "completion_after_successful_ci": true,
+    "handoff_after_failed_ci": true
+  },
+  "handoff_ready": true
+}
