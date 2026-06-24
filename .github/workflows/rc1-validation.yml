@@ -25,5 +25,8 @@ jobs:
       - name: Compare expected RC1 output
         run: python3 tools/check_expected.py
 
+      - name: Check schema conformance
+        run: python3 tools/check_schema_conformance.py
+
       - name: Check RC1 release readiness structure
         run: python3 tools/check_release_ready.py
