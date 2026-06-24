@@ -10,6 +10,7 @@ Status: **handoff ready pending CI confirmation**
 
 The repository now contains:
 
+- management intake entry point: `MANAGEMENT_INTAKE.json`
 - machine-readable goal state: `GOAL_ACTIVATION.v2.json`
 - handoff packet: `HANDOFF_PACKET.json`
 - automated validation workflow: `github/workflows/rc1-validation.yml`
@@ -22,6 +23,7 @@ Note: `github/workflows/rc1-validation.yml` is displayed without the leading per
 
 The ecosystem management layer should consume:
 
+- `MANAGEMENT_INTAKE.json`;
 - successful RC1 workflow result;
 - uploaded `rc1-artifact-receipts` artifact;
 - `GOAL_ACTIVATION.v2.json`;
@@ -33,7 +35,7 @@ The ecosystem management layer should consume:
 This repo satisfies the new assessment goal when either:
 
 1. RC1 completes through automation without manual validation; or
-2. the ecosystem management layer can continue from the handoff packet without requiring a human to reconstruct task state from chat history.
+2. the ecosystem management layer can continue from the management intake and handoff packet without requiring a human to reconstruct task state from chat history.
 
 ## Manual task status
 
