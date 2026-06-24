@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "example_id": "roundtrip-icat-bcat-gcat-001",
+  "source_profile": "examples/icat/pass_shared_understanding_recoverable.json",
+  "path": [
+    {
+      "layer": "ICAT",
+      "status": "profile-valid",
+      "meaning": "Declared interaction context is aligned and recoverable enough to support boundary review."
+    },
+    {
+      "layer": "BCAT",
+      "status": "boundary-reviewable",
+      "meaning": "The inter-entity context can be scoped before governance authority is evaluated."
+    },
+    {
+      "layer": "GCAT",
+      "status": "non-authoritative-allow-for-review",
+      "meaning": "The record may continue to governance review, but does not grant execution authority."
+    }
+  ],
+  "final_result": "ALLOW_REVIEW_ONLY",
+  "limitations": [
+    "This example permits review only.",
+    "Trust context is not execution authority.",
+    "Commit-time authority must still be independently determined."
+  ]
+}
