@@ -33,3 +33,15 @@ jobs:
 
       - name: Check release readiness
         run: python3 tools/check_release_ready.py
+
+      - name: Generate RC1 artifact receipts
+        run: |
+          set -euo pipefail
+          mkdir -p receipts
+          find README.md RELEASE_CANDIDATE.md LICENSE docs schemas examples tests tools iosnoperiod -type f | sort | xargs sha256sum > receipts/rc1-artifact-receipts.sha256
+
+      - name: Upload RC1 artifact receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rc1-artifact-receipts
+          path: receipts/rc1-artifact-receipts.sha256
