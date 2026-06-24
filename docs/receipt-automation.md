@@ -9,10 +9,28 @@ RC1 artifact hashing is handled by the validation workflow instead of a local re
 The workflow hashes the declared RC1 artifact set during CI and writes the result to:
 
 ```text
-rc1-artifact-receipts.sha256
+receipts/rc1-artifact-receipts.sha256
 ```
 
 The workflow then uploads that file as the `rc1-artifact-receipts` workflow artifact.
+
+## Hash scope
+
+The current workflow hashes files under:
+
+```text
+README.md
+RELEASE_CANDIDATE.md
+LICENSE
+docs/
+schemas/
+examples/
+tests/
+tools/
+iosnoperiod/
+```
+
+The canonical workflow file is excluded from the generated receipt because it is the generator of the receipt and includes the receipt-generation instructions. The workflow itself remains covered by the release-readiness structure check.
 
 ## Boundary
 
