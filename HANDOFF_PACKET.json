@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "handoff_id": "ecat-icat-rc1-management-handoff",
+  "handoff_status": "ready_for_ecosystem_management",
+  "purpose": "Allow the ecosystem management layer to complete or continue RC1 without manual validation steps.",
+  "active_goal_ref": "GOAL_ACTIVATION.json",
+  "required_workflow": "github/workflows/rc1-validation.yml",
+  "required_workflow_note": "Displayed without leading period for iOS compatibility. Canonical path begins with a leading period.",
+  "required_artifact": "rc1-artifact-receipts",
+  "required_artifact_file": "receipts/rc1-artifact-receipts.sha256",
+  "automated_checks": [
+    "tools/validate_profiles.py",
+    "tools/check_expected.py",
+    "tools/check_schema_conformance.py",
+    "tools/check_receipt_generation.py",
+    "tools/check_release_ready.py"
+  ],
+  "acceptance_criteria": [
+    "RC1 validation workflow succeeds on main.",
+    "Workflow uploads rc1-artifact-receipts.",
+    "RELEASE_CANDIDATE.md reports no manual validation requirement.",
+    "GOAL_ACTIVATION.json declares no manual actions required."
+  ],
+  "manual_actions_required": [],
+  "next_system_action": "Ecosystem management can consume the workflow result, retrieve the receipt artifact, and decide whether to publish or continue development under the same goal."
+}
