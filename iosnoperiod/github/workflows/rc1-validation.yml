@@ -19,11 +19,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate ECAT and ICAT profiles
+      - name: Validate profiles
         run: python3 tools/validate_profiles.py
 
-      - name: Compare expected RC1 output
+      - name: Compare expected output
         run: python3 tools/check_expected.py
 
-      - name: Check RC1 release readiness structure
+      - name: Check schema conformance
+        run: python3 tools/check_schema_conformance.py
+
+      - name: Check release readiness
         run: python3 tools/check_release_ready.py
