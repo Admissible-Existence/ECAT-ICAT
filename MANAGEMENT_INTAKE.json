@@ -5,6 +5,7 @@
   "intake_type": "release_candidate_management",
   "goal_file": "GOAL_ACTIVATION.v2.json",
   "handoff_file": "HANDOFF_PACKET.json",
+  "consumer_contract_file": "CONSUMER_CONTRACT.json",
   "release_status_file": "RELEASE_CANDIDATE.md",
   "workflow_file": "github/workflows/rc1-validation.yml",
   "workflow_file_note": "Displayed without leading period for iOS compatibility. Canonical path begins with a leading period.",
@@ -15,6 +16,7 @@
     "check_expected",
     "check_schema_conformance",
     "check_receipt_generation",
+    "check_management_intake",
     "check_management_handoff",
     "check_release_ready"
   ],
