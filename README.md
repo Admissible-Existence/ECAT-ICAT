@@ -2,7 +2,7 @@
 
 ECAT-ICAT is the Admissible Existence repository for defining the human-experience and inter-entity layers of governance constraints before they harden into boundary rules, admissibility decisions, or execution authority.
 
-This repository is now entering formal release-candidate testing. Its purpose is to preserve the distinction between emotional/experiential standing, interpersonal/intuitive standing, boundary recoverability, and governance admissibility before implementation, automation, or downstream publication depends on it.
+This repository is now in automated release-candidate testing. Its purpose is to preserve the distinction between emotional/experiential standing, interpersonal/intuitive standing, boundary recoverability, and governance admissibility before implementation, automation, or downstream publication depends on it.
 
 ## Assumptions
 
@@ -20,9 +20,9 @@ Earlier ECAT/ICAT phrasing treated ECAT as external continuity and ICAT as inter
 
 ## Current release-candidate status
 
-Status: **0.1.0-rc1 seed in progress**
+Status: **0.1.0-rc1 automated testing active**
 
-The repository now includes the first formal testing scaffold:
+The repository now includes the first automated formal testing scaffold:
 
 - `schemas/ecat-profile.schema.json`
 - `schemas/icat-profile.schema.json`
@@ -30,18 +30,37 @@ The repository now includes the first formal testing scaffold:
 - `examples/ecat/fail_missing_recoverability.json`
 - `examples/icat/pass_shared_understanding_recoverable.json`
 - `examples/icat/fail_missing_entities.json`
+- `examples/round-trip/ecat-to-bcat-to-gcat.json`
+- `examples/round-trip/icat-to-bcat-to-gcat.json`
+- `examples/existence/percent-existence-example.json`
 - `tools/validate_profiles.py`
+- `tools/check_expected.py`
 - `tests/expected/rc1_validation_report.json`
+- `tests/README.md`
+- `docs/glossary.md`
+- `docs/schema-boundaries.md`
 - `docs/release-candidate-0.1.0-rc1.md`
+- `docs/receipt-plan.md`
+- `RELEASE_CANDIDATE.md`
+- `github/workflows/rc1-validation.yml`
+- `iosnoperiod/github/workflows/rc1-validation.yml`
+- `iosnoperiod/README.md`
 
-The current validator is intentionally minimal and dependency-free. It checks the RC1 fixtures with Python's standard library and produces deterministic JSON output.
+Note: workflow paths above are displayed without the leading period for iOS compatibility. The canonical repository workflow path begins with a leading period.
 
-## Run validation
+## Automated validation
 
-From the repository root:
+Validation runs automatically on:
+
+- push to `main`;
+- pull request;
+- workflow dispatch.
+
+The workflow runs:
 
 ```bash
 python3 tools/validate_profiles.py
+python3 tools/check_expected.py
 ```
 
 Expected RC1 result:
@@ -50,14 +69,10 @@ Expected RC1 result:
 total fixtures: 4
 valid fixtures: 2
 invalid fixtures: 2
-exit code: 0
+expected comparison: expected_match
 ```
 
-The expected output is recorded in:
-
-```text
-tests/expected/rc1_validation_report.json
-```
+Manual local execution remains available for debugging, but normal repo validation no longer depends on manual execution.
 
 ## Purpose
 
@@ -186,8 +201,12 @@ A partial ECAT/ICAT failure should not become execution authority unless a polic
 ```text
 /
   README.md
+  RELEASE_CANDIDATE.md
   docs/
+    glossary.md
+    receipt-plan.md
     release-candidate-0.1.0-rc1.md
+    schema-boundaries.md
   schemas/
     ecat-profile.schema.json
     icat-profile.schema.json
@@ -198,12 +217,27 @@ A partial ECAT/ICAT failure should not become execution authority unless a polic
     icat/
       pass_shared_understanding_recoverable.json
       fail_missing_entities.json
+    existence/
+      percent-existence-example.json
+    round-trip/
+      ecat-to-bcat-to-gcat.json
+      icat-to-bcat-to-gcat.json
   tests/
+    README.md
     expected/
       rc1_validation_report.json
   tools/
     validate_profiles.py
+    check_expected.py
+  github/workflows/
+    rc1-validation.yml
+  iosnoperiod/
+    README.md
+    github/workflows/
+      rc1-validation.yml
 ```
+
+Note: `github/workflows/rc1-validation.yml` is displayed without the leading period for iOS compatibility. The canonical repository path begins with a leading period.
 
 ## Minimum ECAT profile fields
 
@@ -252,9 +286,9 @@ The first formal release should be considered complete only when the repository 
 
 ## Current status
 
-Status: **Release candidate seed**
+Status: **Automated release candidate seed**
 
-The current repository state is sufficient for initial schema and fixture validation. It is not yet sufficient for a formal release claim.
+The current repository state is sufficient for automated initial schema and fixture validation. It is not yet sufficient for a formal release claim.
 
 ## Safety posture
 
