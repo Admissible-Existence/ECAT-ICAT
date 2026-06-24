@@ -1,0 +1,47 @@
+{
+  "matches": 4,
+  "mismatches": 0,
+  "results": [
+    {
+      "errors": [
+        ":missing:recoverability_status",
+        "/recoverability_status:type:string"
+      ],
+      "expected_valid": false,
+      "matches_expected": true,
+      "path": "examples/ecat/fail_missing_recoverability.json",
+      "schema": "schemas/ecat-profile.schema.json",
+      "valid": false
+    },
+    {
+      "errors": [],
+      "expected_valid": true,
+      "matches_expected": true,
+      "path": "examples/ecat/pass_declared_experience_recoverable.json",
+      "schema": "schemas/ecat-profile.schema.json",
+      "valid": true
+    },
+    {
+      "errors": [
+        ":missing:entities",
+        "/entities:type:array"
+      ],
+      "expected_valid": false,
+      "matches_expected": true,
+      "path": "examples/icat/fail_missing_entities.json",
+      "schema": "schemas/icat-profile.schema.json",
+      "valid": false
+    },
+    {
+      "errors": [],
+      "expected_valid": true,
+      "matches_expected": true,
+      "path": "examples/icat/pass_shared_understanding_recoverable.json",
+      "schema": "schemas/icat-profile.schema.json",
+      "valid": true
+    }
+  ],
+  "schema_version": "0.1.0-rc1",
+  "scope": "schema-conformance",
+  "total": 4
+}
