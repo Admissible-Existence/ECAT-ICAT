@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ECAT Profile",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "profile_id",
+    "layer",
+    "entity_id",
+    "context",
+    "declared_experience",
+    "coherence_status",
+    "recoverability_status",
+    "boundary_relevance",
+    "validity_window",
+    "limitations",
+    "receipt_id"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.1.0-rc1" },
+    "profile_id": { "type": "string", "minLength": 1 },
+    "layer": { "type": "string", "const": "ECAT" },
+    "entity_id": { "type": "string", "minLength": 1 },
+    "context": { "type": "string", "minLength": 1 },
+    "declared_experience": { "type": "string", "minLength": 1 },
+    "coherence_status": { "type": "string", "enum": ["coherent", "partial", "incoherent", "unknown"] },
+    "recoverability_status": { "type": "string", "enum": ["recoverable", "conditional", "unrecoverable", "unknown"] },
+    "boundary_relevance": { "type": "string", "minLength": 1 },
+    "validity_window": {
+      "type": "object",
+      "required": ["from", "until"],
+      "properties": {
+        "from": { "type": "string", "minLength": 1 },
+        "until": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "limitations": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "receipt_id": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}
