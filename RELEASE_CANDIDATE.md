@@ -25,6 +25,7 @@ The workflow runs:
 ```bash
 python3 tools/validate_profiles.py
 python3 tools/check_expected.py
+python3 tools/check_release_ready.py
 ```
 
 ## Current pass condition
@@ -33,6 +34,7 @@ The release candidate is internally consistent when:
 
 - `tools/validate_profiles.py` reports 4 fixtures, 2 valid, and 2 invalid;
 - `tools/check_expected.py` reports `expected_match`;
+- `tools/check_release_ready.py` reports `release_ready: true`;
 - README, glossary, schema boundary notes, examples, expected output, and release notes agree on RC1 vocabulary;
 - the RC1 validation workflow completes successfully.
 
@@ -41,6 +43,7 @@ The release candidate is internally consistent when:
 - `docs/glossary.md`
 - `docs/schema-boundaries.md`
 - `docs/release-candidate-0.1.0-rc1.md`
+- `docs/receipt-plan.md`
 - `schemas/ecat-profile.schema.json`
 - `schemas/icat-profile.schema.json`
 - `examples/ecat/pass_declared_experience_recoverable.json`
@@ -51,9 +54,11 @@ The release candidate is internally consistent when:
 - `examples/round-trip/icat-to-bcat-to-gcat.json`
 - `examples/existence/percent-existence-example.json`
 - `tests/expected/rc1_validation_report.json`
+- `tests/expected/rc1_release_ready_report.json`
 - `tests/README.md`
 - `tools/validate_profiles.py`
 - `tools/check_expected.py`
+- `tools/check_release_ready.py`
 - `github/workflows/rc1-validation.yml`
 - `iosnoperiod/github/workflows/rc1-validation.yml`
 - `iosnoperiod/README.md`
@@ -62,7 +67,7 @@ Note: any path above that corresponds to a canonical leading-period repository p
 
 ## Manual task reduction
 
-Manual validation is no longer required for normal repo changes. A push or pull request now invokes the validator and expected-output comparison automatically.
+Manual validation is no longer required for normal repo changes. A push or pull request now invokes profile validation, expected-output comparison, and release-readiness structure checks automatically.
 
 ## Release blockers remaining
 
