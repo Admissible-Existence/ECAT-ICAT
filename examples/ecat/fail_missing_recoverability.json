@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "profile_id": "ecat-fail-001",
+  "layer": "ECAT",
+  "entity_id": "entity-beta",
+  "context": "Pre-boundary review before a proposed commitment candidate is formed.",
+  "declared_experience": "The entity reports uncertainty about the boundary.",
+  "coherence_status": "partial",
+  "boundary_relevance": "Cannot support later BCAT review because recoverability is undeclared.",
+  "validity_window": {
+    "from": "2026-06-24T00:00:00Z",
+    "until": "2026-07-01T00:00:00Z"
+  },
+  "limitations": [
+    "Intentional failing fixture: recoverability_status is missing."
+  ],
+  "receipt_id": "receipt-ecat-fail-001"
+}
