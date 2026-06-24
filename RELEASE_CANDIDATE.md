@@ -4,9 +4,23 @@
 
 Version: `0.1.0-rc1`
 
-Status: **testing scaffold active**
+Status: **automated testing active**
+
+## Automated validation
+
+RC1 validation now runs through GitHub Actions on:
+
+- push to `main`;
+- pull request;
+- workflow dispatch.
+
+Workflow path: `github/workflows/rc1-validation.yml`
+
+Note: the workflow path above is displayed without the leading period for iOS compatibility. The canonical repository path begins with a leading period.
 
 ## Validation commands
+
+The workflow runs:
 
 ```bash
 python3 tools/validate_profiles.py
@@ -19,7 +33,8 @@ The release candidate is internally consistent when:
 
 - `tools/validate_profiles.py` reports 4 fixtures, 2 valid, and 2 invalid;
 - `tools/check_expected.py` reports `expected_match`;
-- README, glossary, schema boundary notes, examples, and expected output agree on RC1 vocabulary.
+- README, glossary, schema boundary notes, examples, expected output, and release notes agree on RC1 vocabulary;
+- the RC1 validation workflow completes successfully.
 
 ## Included proof artifacts
 
@@ -36,15 +51,24 @@ The release candidate is internally consistent when:
 - `examples/round-trip/icat-to-bcat-to-gcat.json`
 - `examples/existence/percent-existence-example.json`
 - `tests/expected/rc1_validation_report.json`
+- `tests/README.md`
 - `tools/validate_profiles.py`
 - `tools/check_expected.py`
+- `github/workflows/rc1-validation.yml`
+- `iosnoperiod/github/workflows/rc1-validation.yml`
+- `iosnoperiod/README.md`
+
+Note: any path above that corresponds to a canonical leading-period repository path is displayed without the leading period for iOS compatibility.
+
+## Manual task reduction
+
+Manual validation is no longer required for normal repo changes. A push or pull request now invokes the validator and expected-output comparison automatically.
 
 ## Release blockers remaining
 
 Before formal release, the repo still needs:
 
-- fixture receipt hashes;
+- fixture receipt hashes or an automated receipt-generation path accepted by the repo safety posture;
 - schema validation against full JSON Schema instead of the minimal standard-library subset;
-- CI workflow or documented manual verification receipt;
 - tagged release notes;
 - license decision.
