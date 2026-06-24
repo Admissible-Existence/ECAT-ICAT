@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "example_id": "existence-001",
+  "expression": "GCAT / BCAT : ECAT / ICAT : %Existence",
+  "subject": "review-scoped-governance-claim",
+  "layers": {
+    "ECAT": {
+      "status": "coherent",
+      "score": 1.0,
+      "source": "examples/ecat/pass_declared_experience_recoverable.json"
+    },
+    "ICAT": {
+      "status": "aligned",
+      "score": 1.0,
+      "source": "examples/icat/pass_shared_understanding_recoverable.json"
+    },
+    "BCAT": {
+      "status": "boundary-reviewable",
+      "score": 0.75,
+      "source": "examples/round-trip/ecat-to-bcat-to-gcat.json"
+    },
+    "GCAT": {
+      "status": "review-only-not-execution-authority",
+      "score": 0.5,
+      "source": "examples/round-trip/icat-to-bcat-to-gcat.json"
+    }
+  },
+  "percent_existence": 81.25,
+  "calculation": "average(ECAT, ICAT, BCAT, GCAT) * 100",
+  "admissibility_result": "ALLOW_REVIEW_ONLY",
+  "limitations": [
+    "Percent existence is a governance standing score, not an execution grant.",
+    "The GCAT layer is intentionally limited because commit-time authority has not been proven."
+  ]
+}
