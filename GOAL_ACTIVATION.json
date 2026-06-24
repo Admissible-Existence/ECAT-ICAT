@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "active_goal": "Continue building without manual actions needed through completion OR until task handoff and task completion is capable of being handled by the ecosystem's own management.",
+  "assessment_mode": "ecosystem_self_management",
+  "completion_states": [
+    "complete_without_manual_action",
+    "handoff_ready_for_ecosystem_management"
+  ],
+  "done_definition": {
+    "ci_validation": true,
+    "receipt_artifact_publication": true,
+    "release_candidate_docs": true,
+    "handoff_packet": true,
+    "machine_readable_goal_state": true,
+    "manual_validation_required": false
+  },
+  "handoff_targets": [
+    "Admissible-Existence ecosystem management",
+    "StegVerse management layer",
+    "future master-records ingestion path"
+  ],
+  "current_state": "handoff_ready_for_ecystem_management_pending_ci_confirmation",
+  "next_system_action": "Run RC1 validation workflow and consume generated rc1-artifact-receipts artifact.",
+  "manual_actions_required": []
+}
