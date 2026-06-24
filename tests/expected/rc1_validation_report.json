@@ -1,0 +1,38 @@
+{
+  "invalid": 2,
+  "results": [
+    {
+      "errors": [
+        "invalid:recoverability_status",
+        "missing:recoverability_status"
+      ],
+      "layer": "ECAT",
+      "path": "examples/ecat/fail_missing_recoverability.json",
+      "valid": false
+    },
+    {
+      "errors": [],
+      "layer": "ECAT",
+      "path": "examples/ecat/pass_declared_experience_recoverable.json",
+      "valid": true
+    },
+    {
+      "errors": [
+        "invalid:entities",
+        "missing:entities"
+      ],
+      "layer": "ICAT",
+      "path": "examples/icat/fail_missing_entities.json",
+      "valid": false
+    },
+    {
+      "errors": [],
+      "layer": "ICAT",
+      "path": "examples/icat/pass_shared_understanding_recoverable.json",
+      "valid": true
+    }
+  ],
+  "schema_version": "0.1.0-rc1",
+  "total": 4,
+  "valid": 2
+}
