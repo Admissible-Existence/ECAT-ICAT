@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0-rc1",
+  "profile_id": "icat-pass-001",
+  "layer": "ICAT",
+  "entities": ["entity-alpha", "entity-gamma"],
+  "interaction_context": "Two entities are aligning on whether a shared claim can move toward boundary review.",
+  "declared_relationship_context": "Both entities acknowledge the same scope and can defer commitment without penalty.",
+  "shared_understanding_status": "aligned",
+  "trust_relevance": "Supports witness and delegation review without treating trust as execution authority.",
+  "recoverability_status": "recoverable",
+  "boundary_relevance": "Supports later BCAT review because the interaction can be reconstructed and scoped.",
+  "validity_window": {
+    "from": "2026-06-24T00:00:00Z",
+    "until": "2026-07-01T00:00:00Z"
+  },
+  "limitations": [
+    "This is a declared relationship-context profile, not certification of either entity.",
+    "This profile does not grant execution authority by itself."
+  ],
+  "receipt_id": "receipt-icat-pass-001"
+}
