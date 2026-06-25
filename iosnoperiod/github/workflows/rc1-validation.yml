@@ -34,6 +34,9 @@ jobs:
       - name: Check management intake readiness
         run: python3 tools/check_management_intake.py
 
+      - name: Check consumer plan
+        run: python3 tools/check_consumer_execution_plan.py
+
       - name: Check management handoff readiness
         run: python3 tools/check_management_handoff.py
 
