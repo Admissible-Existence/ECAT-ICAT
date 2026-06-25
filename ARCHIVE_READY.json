@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "thread_state": "archive_ready",
+  "goal_state": "structurally_complete_pending_external_runner_confirmation",
+  "latest_known_commit": "120f4d67c8b46450a7969ed266054a3af1b29169",
+  "management_entrypoint": "MANAGEMENT_INTAKE.json",
+  "consumer_contract": "CONSUMER_CONTRACT.json",
+  "consumer_plan": "CONSUMER_EXECUTION_PLAN.json",
+  "consumer_acceptance": "CONSUMER_ACCEPTANCE_RECORD.json",
+  "workflow": "github/workflows/rc1-validation.yml",
+  "workflow_note": "Displayed without leading period for iOS compatibility. Canonical path begins with a leading period.",
+  "expected_artifacts": [
+    "rc1-artifact-receipts",
+    "rc1-completion-record"
+  ],
+  "manual_validation_required": false,
+  "external_confirmation_pending": true,
+  "archive_note": "Complete thread context is not required to continue; use the management entrypoint and consumer contract."
+}
