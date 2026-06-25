@@ -37,6 +37,9 @@ jobs:
       - name: Check consumer plan
         run: python3 tools/check_consumer_execution_plan.py
 
+      - name: Check consumer acceptance record
+        run: python3 tools/check_consumer_acceptance_record.py
+
       - name: Check management handoff readiness
         run: python3 tools/check_management_handoff.py
 
