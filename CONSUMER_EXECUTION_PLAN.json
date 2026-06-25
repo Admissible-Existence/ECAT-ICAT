@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "execution_plan_id": "ecat-icat-rc1-consumer-execution-plan",
+  "entrypoint": "MANAGEMENT_INTAKE.json",
+  "contract": "CONSUMER_CONTRACT.json",
+  "handoff": "HANDOFF_PACKET.json",
+  "workflow": "github/workflows/rc1-validation.yml",
+  "workflow_note": "Displayed without leading period for iOS compatibility. Canonical path begins with a leading period.",
+  "steps": [
+    {
+      "step": 1,
+      "name": "read_management_intake",
+      "input": "MANAGEMENT_INTAKE.json",
+      "expected": "handoff_ready true and manual_validation_required false"
+    },
+    {
+      "step": 2,
+      "name": "read_consumer_contract",
+      "input": "CONSUMER_CONTRACT.json",
+      "expected": "primary_entrypoint is MANAGEMENT_INTAKE.json"
+    },
+    {
+      "step": 3,
+      "name": "evaluate_workflow_result",
+      "input": "github/workflows/rc1-validation.yml",
+      "expected": "workflow conclusion success"
+    },
+    {
+      "step": 4,
+      "name": "consume_receipt_artifact",
+      "input": "rc1-artifact-receipts",
+      "expected": "receipt artifact contains receipts/rc1-artifact-receipts.sha256"
+    },
+    {
+      "step": 5,
+      "name": "decide_next_state",
+      "input": "workflow result plus receipt artifact",
+      "expected": "complete_without_manual_action or continue_development_under_same_goal"
+    }
+  ],
+  "manual_actions_required": []
+}
