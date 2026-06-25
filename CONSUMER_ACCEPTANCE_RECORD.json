@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "repo": "Admissible-Existence/ECAT-ICAT",
+  "record_type": "consumer_acceptance_record",
+  "entrypoint": "MANAGEMENT_INTAKE.json",
+  "contract": "CONSUMER_CONTRACT.json",
+  "plan": "CONSUMER_EXECUTION_PLAN.json",
+  "receipt_artifact": "rc1-artifact-receipts",
+  "receipt_file": "receipts/rc1-artifact-receipts.sha256",
+  "manual_validation_required": false,
+  "accepted_next_states": [
+    "complete_without_manual_action",
+    "continue_development_under_same_goal"
+  ]
+}
