@@ -52,6 +52,9 @@ jobs:
           mkdir -p receipts
           find README.md RELEASE_CANDIDATE.md LICENSE docs schemas examples tests tools iosnoperiod -type f | sort | xargs sha256sum > receipts/rc1-artifact-receipts.sha256
 
+      - name: Write completion record
+        run: python3 tools/write_completion_record.py
+
       - name: Upload RC1 artifact receipts
         uses: actions/upload-artifact@v4
         with:
