@@ -60,3 +60,9 @@ jobs:
         with:
           name: rc1-artifact-receipts
           path: receipts/rc1-artifact-receipts.sha256
+
+      - name: Upload RC1 completion record
+        uses: actions/upload-artifact@v4
+        with:
+          name: rc1-completion-record
+          path: completion/rc1-completion-record.json
