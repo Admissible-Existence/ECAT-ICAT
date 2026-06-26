@@ -16,12 +16,15 @@ REQUIRED_KEYS = [
     "intake_type",
     "goal_file",
     "handoff_file",
+    "archive_ready_file",
     "consumer_contract_file",
     "workflow_file",
     "receipt_artifact_name",
+    "completion_artifact_name",
     "required_checks",
     "completion_policy",
     "handoff_ready",
+    "archive_ready",
 ]
 
 
@@ -39,10 +42,16 @@ def main() -> int:
     for key in REQUIRED_KEYS:
         if key not in payload:
             errors.append(f"missing_key:{key}")
+    if payload.get("archive_ready_file") != "ARCHIVE_READY.json":
+        errors.append("archive_ready_not_declared")
     if payload.get("consumer_contract_file") != "CONSUMER_CONTRACT.json":
         errors.append("consumer_contract_not_declared")
+    if payload.get("completion_artifact_name") != "rc1-completion-record":
+        errors.append("completion_artifact_not_declared")
     if payload.get("handoff_ready") is not True:
         errors.append("handoff_ready_not_true")
+    if payload.get("archive_ready") is not True:
+        errors.append("archive_ready_not_true")
     policy = payload.get("completion_policy", {})
     if policy.get("manual_validation_required") is not False:
         errors.append("manual_validation_required_not_false")
