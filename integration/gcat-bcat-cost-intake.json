@@ -1,0 +1,19 @@
+{
+  "intake_id": "ECAT-ICAT-GCAT-BCAT-INTAKE-0001",
+  "repository": "Admissible-Existence/ECAT-ICAT",
+  "source_repository": "Admissible-Existence/GCAT-BCAT",
+  "source_status": "ACTIVATION-READY-SEED",
+  "purpose": "Connect entity and interaction constraint profiles to the GCAT/BCAT cost-of-state-transitions model without converting ECAT or ICAT into execution authority.",
+  "mapped_terms": [
+    "C_g",
+    "p_bad",
+    "r",
+    "recoverability",
+    "FAIL-CLOSED"
+  ],
+  "non_claims": [
+    "ECAT/ICAT does not authorize execution.",
+    "ECAT/ICAT cost relevance does not diagnose people or relationships.",
+    "GCAT/BCAT cost savings do not override consent, agency, or commit-time standing."
+  ]
+}
