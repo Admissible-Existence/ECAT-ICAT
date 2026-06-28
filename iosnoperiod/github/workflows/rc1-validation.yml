@@ -43,6 +43,9 @@ jobs:
       - name: Check management handoff readiness
         run: python3 tools/check_management_handoff.py
 
+      - name: Check GCAT BCAT intake
+        run: python3 tools/verify_gcat_bcat_intake.py
+
       - name: Check release readiness
         run: python3 tools/check_release_ready.py
 
