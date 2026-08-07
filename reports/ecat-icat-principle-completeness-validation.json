@@ -1,0 +1,26 @@
+{
+  "execution_authorized": false,
+  "expected_principle_count": 4,
+  "findings": [],
+  "goal_id": "ECAT-ICAT-PRINCIPLE-COMPLETENESS-001",
+  "input_sha256": {
+    "README.md": "0dee3d52143af61da37944c0eb786785c110badb8d4ee10cf4931993427edd35",
+    "docs/ECAT_ICAT_MIRROR_HANDOFF.md": "da175e354cd3156dbff462cfabb30d329ed6462d8f9ca4618d1700a762186b95",
+    "docs/FALSIFICATION_AND_LIMITS.md": "57335157c326d5ef182b610ce02e816aa55a6e9e20c95c3d63dbd4bb12e6432c",
+    "docs/MATHEMATICAL_NOTATION.md": "f728f07f155dd7afd44c31ebdf41231676974458907c67c1c29862e1c409c08d",
+    "docs/WHOLE_REPO_THEORY_MAP.md": "10b242ffd3adb925e5d3633b254f9f23797b552d1987ccf6be76e006dc32bbd6",
+    "formalism/dependency-graph.yaml": "1b8e1bb9358d6dbd5f8e24194594e198b226f7060cf070d89b104c86f6a01833",
+    "formalism/principle-registry.yaml": "4f2cd6c8950c1bcef0ff2a79fac60ac57a1956293f4dc577206b4a95f4999873",
+    "formalism/proof-candidates.yaml": "a39bdbb992c72476543e8fafefce55f98749530cb71ce508d3c3f04ca652014e",
+    "schemas/ecat-profile.schema.json": "513b0bfcd0e9d605f268804c31363ab9669efae95281ada743966743ac9a207e",
+    "schemas/icat-profile.schema.json": "1e1b988728ca0499f87bb7dd294d76b4cc3bcd3c8ef587e6c85038c899921f10",
+    "tests/expected/rc1_validation_report.json": "79fb8b0fde113a4d24fca66f89847de86fce855172caf364857071c42ada521d",
+    "tools/validate_profiles.py": "949159cc3383adb0f0ca6a946fbde7f5f4f6391518c1ce35d5e0212884ae9701"
+  },
+  "principle_count": 4,
+  "proofs_accepted": false,
+  "publication_authorized": false,
+  "repository": "Admissible-Existence/ECAT-ICAT",
+  "schema_version": "1.0.0",
+  "valid": true
+}
