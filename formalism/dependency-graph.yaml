@@ -1,0 +1,34 @@
+schema_version: 1.0.0
+goal_id: ECAT-ICAT-PRINCIPLE-COMPLETENESS-001
+nodes:
+  ecat_schema:
+    path: schemas/ecat-profile.schema.json
+  icat_schema:
+    path: schemas/icat-profile.schema.json
+  validator:
+    path: tools/validate_profiles.py
+  expected_report:
+    path: tests/expected/rc1_validation_report.json
+  principle_registry:
+    path: formalism/principle-registry.yaml
+edges:
+  - from: ecat_schema
+    to: validator
+    relation: validated_by
+  - from: icat_schema
+    to: validator
+    relation: validated_by
+  - from: validator
+    to: expected_report
+    relation: compared_against
+  - from: principle_registry
+    to: ecat_schema
+    relation: grounded_in
+  - from: principle_registry
+    to: icat_schema
+    relation: grounded_in
+constraints:
+  - ECAT and ICAT remain pre-boundary standing inputs.
+  - Downstream BCAT/GCAT/AE standing must not be bypassed.
+  - Replay or reconstruction evidence does not create present execution authority.
+  - Missing required evidence fails closed where the repository contract requires it.
