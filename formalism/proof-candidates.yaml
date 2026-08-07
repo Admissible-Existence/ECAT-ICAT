@@ -1,0 +1,27 @@
+schema_version: 1.0.0
+goal_id: ECAT-ICAT-PRINCIPLE-COMPLETENESS-001
+candidates:
+  - id: ECAT-PC-001
+    claim: A structurally valid ECAT profile with required recoverability evidence can be distinguished deterministically from one missing required recoverability evidence.
+    evidence:
+      - examples/ecat/pass_declared_experience_recoverable.json
+      - examples/ecat/fail_missing_recoverability.json
+      - tools/validate_profiles.py
+    maturity: tested_candidate
+  - id: ICAT-PC-001
+    claim: A structurally valid ICAT profile with declared entities and recoverability can be distinguished deterministically from one missing required entity context.
+    evidence:
+      - examples/icat/pass_shared_understanding_recoverable.json
+      - examples/icat/fail_missing_entities.json
+      - tools/validate_profiles.py
+    maturity: tested_candidate
+  - id: ECAT-ICAT-PC-001
+    claim: ECAT/ICAT outputs can be carried into downstream BCAT/GCAT examples without becoming execution authority themselves.
+    evidence:
+      - examples/round-trip/ecat-to-bcat-to-gcat.json
+      - examples/round-trip/icat-to-bcat-to-gcat.json
+    maturity: bounded_candidate
+limitations:
+  - Candidate status is not universal proof.
+  - No candidate grants execution, publication, or final admissibility authority.
+  - Psychological diagnosis, emotional surveillance, and blanket relationship authority are outside scope.
