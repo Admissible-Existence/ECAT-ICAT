@@ -4,8 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'reports/ecat-icat-principle-completeness-validation.json'
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   validate:
@@ -18,6 +23,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Install completeness dependency
+        run: python -m pip install --disable-pip-version-check pyyaml
 
       - name: Validate ECAT and ICAT profiles
         run: python3 tools/validate_profiles.py
@@ -49,14 +57,37 @@ jobs:
       - name: Check RC1 release readiness structure
         run: python3 tools/check_release_ready.py
 
+      - name: Validate principle completeness
+        run: |
+          python -m py_compile tools/validate_principle_completeness.py
+          python tools/validate_principle_completeness.py
+          python -m json.tool reports/ecat-icat-principle-completeness-validation.json >/dev/null
+
       - name: Generate RC1 artifact receipts
         run: |
           set -euo pipefail
           mkdir -p receipts
-          find README.md RELEASE_CANDIDATE.md LICENSE docs schemas examples tests tools iosnoperiod -type f | sort | xargs sha256sum > receipts/rc1-artifact-receipts.sha256
+          find README.md RELEASE_CANDIDATE.md LICENSE docs schemas examples tests tools iosnoperiod formalism -type f | sort | xargs sha256sum > receipts/rc1-artifact-receipts.sha256
 
       - name: Write completion record
         run: python3 tools/write_completion_record.py
+
+      - name: Persist principle completeness receipt
+        run: |
+          git config user.name "admissible-existence-ecat-icat-worker"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/ecat-icat-principle-completeness-validation.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record ECAT-ICAT principle completeness receipt"
+            git push
+          fi
+
+      - name: Upload principle completeness receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: ecat-icat-principle-completeness-validation
+          path: reports/ecat-icat-principle-completeness-validation.json
+          if-no-files-found: error
 
       - name: Upload RC1 artifact receipts
         uses: actions/upload-artifact@v4
