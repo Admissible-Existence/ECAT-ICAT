@@ -2,75 +2,143 @@
 
 **Goal ID:** `ECAT-ICAT-PRINCIPLE-COMPLETENESS-001`  
 **Repository / branch:** `Admissible-Existence/ECAT-ICAT` / `main`  
-**Status:** `CLAIMED_FOR_IMPLEMENTATION_AND_VALIDATION`  
-**Created:** 2026-08-06T23:30:00-05:00
+**Status:** `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED`  
+**Created:** 2026-08-06T23:30:00-05:00  
+**Finalized:** 2026-08-06T23:35:00-05:00
 
 ## Originating goal
-Complete and durably transfer organization-wide principle completeness while preserving ECAT/ICAT's existing entity/interaction admissibility semantics and avoiding duplicate work.
+Complete and durably transfer organization-wide principle completeness while preserving ECAT/ICAT's existing entity/interaction standing semantics and avoiding duplicate implementation.
 
-## Canonical task owner and claims
-- owner: `Admissible-Existence/ECAT-ICAT#1` once issue creation succeeds;
-- implementation claim: `CLAIMED_FOR_IMPLEMENTATION` only for proven-missing organization completeness surfaces;
-- validation claim: `CLAIMED_FOR_VALIDATION` for repository-local deterministic and hosted evidence;
-- created: 2026-08-06T23:30:00-05:00;
-- expires: 2026-08-13T23:30:00-05:00 unless released, renewed with evidence, or marked blocked with a machine-observable release condition;
-- collision boundary: preserve existing entity/interaction standing, schemas, fixtures, validators, and workflows unless a directly observed defect requires correction.
+## Canonical task owner and claim state
+- owner: `Admissible-Existence/ECAT-ICAT#1`;
+- implementation claim: `COMPLETE_RELEASED`;
+- validation claim: `COMPLETE_RELEASED`;
+- claim created: 2026-08-06T23:30:00-05:00;
+- release condition satisfied by installed completeness surfaces, hosted RC1 validation, committed receipt, inspectable artifacts, and central-transfer readiness;
+- collision boundary preserved: existing schemas, fixtures, validators, management/consumer/release records, and downstream authority boundaries were not replaced.
 
-## Authoritative surfaces
-The existing repository implementation remains authoritative. Before additional mutations, inventory README/specification, schemas, data, validators, fixtures, reports, workflows, release/readiness records, and any task/claim registries. New completeness files must adapt to those live semantics rather than establish a competing authority model.
+## Existing implementation preserved
+The repository already contained a mature RC1 validation stack, including:
 
-## Required organization completeness surfaces
-- `formalism/principle-registry.yaml`
-- `formalism/dependency-graph.yaml`
-- `formalism/proof-candidates.yaml`
-- `docs/WHOLE_REPO_THEORY_MAP.md`
-- `docs/MATHEMATICAL_NOTATION.md`
-- `docs/FALSIFICATION_AND_LIMITS.md`
-- repository-local fail-closed validation receipt integrated into an existing workflow where appropriate.
+- `schemas/ecat-profile.schema.json` and `schemas/icat-profile.schema.json`;
+- positive and negative ECAT/ICAT fixtures;
+- round-trip ECAT/ICAT -> BCAT -> GCAT examples;
+- `tools/validate_profiles.py`;
+- `tools/check_expected.py`;
+- schema-conformance, receipt, management, consumer, GCAT-BCAT intake, release-readiness, and completion checks;
+- `ARCHIVE_READY.json`, `GOAL_ACTIVATION*.json`, consumer records, handoff packet, release-candidate record, and completion machinery;
+- `.github/workflows/rc1-validation.yml`.
 
-Only genuinely missing surfaces are to be installed.
+These were preserved as canonical implementation evidence rather than rebuilt.
 
-## Exact next tasks
-1. Inventory existing ECAT/ICAT source, schema, data, fixture, validator, workflow, report, release/readiness, and claim surfaces.
-2. Classify the required completeness surfaces as existing, duplicated, partial, or missing.
-3. Install only missing adapters tied to existing entity/interaction standing semantics.
-4. Add or reuse deterministic validation and persist a hash-bound receipt.
-5. Inspect an exact hosted workflow run, jobs, logs, receipt, and artifacts; repair only directly proven repository-local defects.
-6. Finalize this handoff, release the finite claim, and synchronize `Admissible-Existence/.github` routing.
+## Organization completeness surfaces installed
+
+- `formalism/principle-registry.yaml` — commit `7e64646c8d0bf6df9c7240f826e49fcd2af2f008`;
+- `formalism/dependency-graph.yaml` — commit `51c95fea8d8c2eb3fcb29bdbd54b9eb7497745d9`;
+- `formalism/proof-candidates.yaml` — commit `5b4f9fd720160f71c3941b1ff2618096d7f07e92`;
+- `docs/WHOLE_REPO_THEORY_MAP.md` — commit `e03efcec8dbe47593b4bf78b8e578f5f2a1b98fb`;
+- `docs/MATHEMATICAL_NOTATION.md` — commit `d5ad9db2c4d0d77462372bb8df883713abeb7b12`;
+- `docs/FALSIFICATION_AND_LIMITS.md` — commit `f0399886fb3116089e7685d70eae29140fc75d55`;
+- `tools/validate_principle_completeness.py` — commit `d5a0a523c67a74d455b66b3bf63729616460a686`;
+- `.github/workflows/rc1-validation.yml` integration — commit `bebc11625a2ba0d02d77db62150e3a4efbd58a4c`.
+
+## Hosted validation evidence
+
+Hosted workflow: `.github/workflows/rc1-validation.yml`  
+Run: `31147813783`  
+Job: `92770919160`  
+Conclusion: `success`
+
+Directly inspected job evidence:
+
+- ECAT/ICAT profile validation: 4 fixtures, 2 valid, 2 invalid;
+- expected comparison: `expected_match`;
+- schema conformance: 4/4 matched, 0 mismatches;
+- receipt generation: documented;
+- management intake: ready;
+- consumer execution plan: ready;
+- consumer acceptance record: ready;
+- management handoff: ready;
+- GCAT/BCAT intake: PASS;
+- RC1 structural release readiness: `release_ready=true`, 33/33 required structures present;
+- principle completeness: 4/4 principles, `valid=true`, zero findings;
+- execution/publication/proof-acceptance effects all false.
+
+The workflow persisted `reports/ecat-icat-principle-completeness-validation.json` at commit `f2d6791` and uploaded:
+
+- principle-completeness artifact `8982133384`, digest `sha256:4a85c8b75cecc36b54e0829fbfe37686d5badc8d026547c1c2f058df6f573b11`;
+- RC1 artifact-receipts artifact `8982133708`, digest `sha256:a759ca29294ac44c5b559eb4900c6a1626ce88797a44e42a6aab5a3c4b213059`;
+- RC1 completion-record artifact `8982134028`, digest `sha256:f0e2a1d06e27dee2abb45b0b509f73d6244d0c250567edd1e8e7d5a3b5374d51`.
+
+## Principle-completeness receipt
+
+`reports/ecat-icat-principle-completeness-validation.json` records:
+
+- expected principle count: 4;
+- principle count: 4;
+- findings: empty;
+- `valid=true`;
+- exact SHA-256 bindings for README, handoff, all six completeness surfaces, both profile schemas, expected RC1 report, and `tools/validate_profiles.py`;
+- `execution_authorized=false`;
+- `publication_authorized=false`;
+- `proofs_accepted=false`.
 
 ## Authority boundaries
-- ECAT/ICAT standing evidence does not itself grant execution authority, publication authority, or final AE admissibility.
-- Entity standing and interaction standing remain distinct from downstream execution/commit authorization.
-- Replay or reconstruction evidence does not create present authority.
-- Missing evidence must fail closed where the existing formalism requires it.
 
-## Machine-owned tasks
-- existing ECAT/ICAT workflows remain canonical hosted-validation lanes unless inspection proves they are unsuitable;
-- `Admissible-Existence/.github` owns organization routing and consolidation after repository-local evidence is complete.
+- ECAT/ICAT standing evidence does not grant execution authority, publication authority, or final AE admissibility.
+- Experiential standing and relational standing remain pre-boundary inputs to later BCAT/GCAT/AE evaluation.
+- Replay or reconstruction evidence does not create present authority.
+- The repository does not claim psychological diagnosis, emotional surveillance legitimacy, universal trust/coherence measurement, or blanket relationship authority.
+- Missing required evidence remains fail-closed under the existing encoded contract.
 
 ## Cross-repository dependencies
-- `Admissible-Existence/Triad` consumes ECAT/ICAT context but is already complete for its bounded source task;
-- `Admissible-Existence/GCAT-BCAT` consumes standing/context at commit gating but does not replace ECAT/ICAT;
-- `Admissible-Existence/AE` remains final admissibility resolution and currently has a separately claimed publication/review lane;
+
+- `Admissible-Existence/Triad` consumes bounded ECAT/ICAT context and is already complete for its source task;
+- `Admissible-Existence/GCAT-BCAT` consumes bounded standing/context at commit gating and is already complete for its root source task;
+- `Admissible-Existence/AE` remains final admissibility resolution and retains a separately claimed publication/review lane;
 - downstream propagation requires separately admitted destination-owned work.
 
 ## Validation commands
-Validation commands will be bound to exact existing repository tools after inventory; no unexecuted command is treated as evidence.
+
+```bash
+python3 tools/validate_profiles.py
+python3 tools/check_expected.py
+python3 tools/check_schema_conformance.py
+python3 tools/check_receipt_generation.py
+python3 tools/check_management_intake.py
+python3 tools/check_consumer_execution_plan.py
+python3 tools/check_consumer_acceptance_record.py
+python3 tools/check_management_handoff.py
+python3 tools/verify_gcat_bcat_intake.py
+python3 tools/check_release_ready.py
+python tools/validate_principle_completeness.py
+```
+
+Hosted success is evidenced by run/job/log/artifact inspection above; local commands alone are not treated as hosted proof.
+
+## Machine-owned continuation
+
+- `.github/workflows/rc1-validation.yml` owns regression validation for future ECAT/ICAT changes;
+- `Admissible-Existence/.github` owns organization routing and completion-state preservation;
+- downstream consumers own any separately admitted propagation or integration tasks.
 
 ## Session consolidation
+
 `MERGED INTO: Admissible-Existence/ECAT-ICAT/docs/ECAT_ICAT_MIRROR_HANDOFF.md`
 
-All ECAT/ICAT work initiated from this session must be preserved here, in issue/task state, receipts, workflows, and central routing before the session can relinquish this lane.
+No ECAT/ICAT requirement from this session remains only in chat. Repository-local implementation and validation work no longer requires a dedicated session.
 
 ## Archive conditions
-The bounded ECAT/ICAT task is archive-safe when completeness surfaces are installed or proven already present, deterministic and hosted evidence are inspected, claims are released, central routing is synchronized, and no ECAT/ICAT requirement remains only in chat.
+
+Repository-local ECAT/ICAT principle completeness is archive-safe after issue `#1` is closed and central routing records this final evidence. Future reopening requires direct regression evidence or a separately admitted consumer/propagation task.
 
 ## Metrics
-- developed completeness files: 1/7 currently confirmed counting this handoff;
-- scaffolding/stubs newly counted: 0;
-- missing completeness surfaces: pending inventory;
-- validation: 0/3 evidence classes confirmed;
-- integration: 1/3 (canonical scope and ownership established);
-- goal activation: 15%;
+
+- developed completeness files: 8/8 including handoff, six adapters, and executable validator;
+- scaffolding/stubs: 0;
+- missing required completeness surfaces: 0;
+- validation: 3/3 evidence classes satisfied (deterministic RC1 behavior, completeness validation/receipt, hosted run/job/log/artifacts);
+- integration: 3/3 (existing RC1 workflow, receipt persistence, central-transfer readiness);
+- goal activation: 100%;
 - session consolidation: 1/1 ECAT/ICAT goal durably transferred;
-- archive readiness: false.
+- repository-local archive readiness: true after central synchronization.
