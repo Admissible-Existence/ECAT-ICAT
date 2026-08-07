@@ -1,0 +1,46 @@
+schema_version: 1.0.0
+goal_id: ECAT-ICAT-PRINCIPLE-COMPLETENESS-001
+repository: Admissible-Existence/ECAT-ICAT
+principles:
+  - id: ECAT-001
+    name: Experiential standing precedes boundary authority
+    statement: Declared experiential and emotional state may inform later governance but cannot itself grant execution authority.
+    sources:
+      - README.md
+      - schemas/ecat-profile.schema.json
+    falsifiers:
+      - ECAT output directly grants execution authority
+      - missing recoverability evidence is silently treated as standing
+  - id: ICAT-001
+    name: Relational standing requires reconstructable interaction context
+    statement: Interpersonal and intuitive standing must remain tied to declared entities, context, shared understanding, and recoverability.
+    sources:
+      - README.md
+      - schemas/icat-profile.schema.json
+    falsifiers:
+      - intuition alone is treated as proof
+      - relationship standing is accepted without reconstructable entities or context
+  - id: ECAT-ICAT-001
+    name: Pre-boundary evidence remains distinct from commit-time admissibility
+    statement: ECAT and ICAT profiles are pre-boundary support inputs and do not replace BCAT, GCAT, or final AE commit-time standing.
+    sources:
+      - README.md
+      - examples/round-trip/ecat-to-bcat-to-gcat.json
+      - examples/round-trip/icat-to-bcat-to-gcat.json
+    falsifiers:
+      - an ECAT or ICAT profile bypasses downstream standing evaluation
+      - replayed historical standing is treated as present execution authority
+  - id: ECAT-ICAT-002
+    name: Missing coherence or recoverability evidence fails closed
+    statement: When required coherence, consent, entity, context, recoverability, or evidence references cannot be established, the bounded evaluation must not be promoted to authoritative ALLOW.
+    sources:
+      - README.md
+      - tools/validate_profiles.py
+      - tests/expected/rc1_validation_report.json
+    falsifiers:
+      - malformed or incomplete profiles are accepted as valid
+      - partial evidence is promoted to execution authority without an explicit policy
+non_authority:
+  execution_authorized: false
+  publication_authorized: false
+  proofs_accepted: false
