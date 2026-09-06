@@ -63,6 +63,22 @@ jobs:
           python tools/validate_principle_completeness.py
           python -m json.tool reports/ecat-icat-principle-completeness-validation.json >/dev/null
 
+      - name: Validate Tri-Form binding
+        run: |
+          python -m py_compile tools/validate_triform_manifest.py
+          python tools/validate_triform_manifest.py
+
+      - name: Run Tri-Form regression tests
+        run: python -m unittest tests/test_triform_manifest.py
+
+      - name: Declare Tri-Form authority boundary
+        run: |
+          echo 'workflow_authority_effect=NONE_VALIDATION_ONLY'
+          echo 'execution_authorized=false'
+          echo 'publication_authorized=false'
+          echo 'proofs_accepted=false'
+          echo 'final_admissibility_authority=Admissible-Existence/AE'
+
       - name: Generate RC1 artifact receipts
         run: |
           set -euo pipefail
