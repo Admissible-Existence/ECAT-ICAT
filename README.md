@@ -1,69 +1,81 @@
 # ECAT-ICAT
 
-ECAT-ICAT is the Admissible Existence repository for defining the human-experience and inter-entity layers of governance constraints before they harden into boundary rules, admissibility decisions, or execution authority.
+ECAT-ICAT is the Admissible Existence repository for defining human-experience and inter-entity governance constraints before they harden into boundary rules, admissibility decisions, or execution authority.
 
-This repository is now in automated release-candidate testing. Its purpose is to preserve the distinction between emotional/experiential standing, interpersonal/intuitive standing, boundary recoverability, and governance admissibility before implementation, automation, or downstream publication depends on it.
+## Current repository state
 
-## Assumptions
+Status: **IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED**
 
-This README uses the following working definitions until this repository contains canonical vocabulary files:
+The bounded repository implementation and validation stack is complete and has hosted validation evidence recorded in `docs/ECAT_ICAT_MIRROR_HANDOFF.md`. This status does **not** mean theorem proof, runtime execution authority, publication authority, clinical authority, certification, or final admissibility. `Admissible-Existence/AE` remains the final commit-time admissibility resolver where applicable.
 
-- **ECAT** means **Emotional / Experiential Constraint Analysis**.
-- **ICAT** means **Interpersonal / Intuitive Constraint Analysis**.
-- **BCAT** means **Boundary Constraint Analysis**.
-- **GCAT** means **Governance Constraint Analysis**.
-- **Admissibility** means a transition, claim, artifact, relationship, boundary, or state is allowed to carry standing under declared governance conditions.
-- **Continuity** means a state, identity, claim, artifact, relationship, or proof path remains reconstructable across a boundary.
-- **Standing** means the current admissible status of a transition, claim, state, or relationship at the moment it is evaluated.
+The prior `0.1.0-rc1 automated testing active` / `Automated release candidate seed` wording described an earlier repository state and is superseded by the canonical handoff and current validation evidence. Historical RC1 schema/version identifiers remain part of the existing data contract and are not silently rewritten by this documentation update.
 
-Earlier ECAT/ICAT phrasing treated ECAT as external continuity and ICAT as internal continuity. That reading is now superseded for this repository. External/internal continuity may still appear in proof-path discussions, but this repository's canonical focus is the emotional, experiential, interpersonal, and intuitive origin of governance constraints.
+## Tri-Form conformance
 
-## Current release-candidate status
+The repository now exposes a bounded **Tri-Form** conformance layer that binds existing prose, mathematical, and executable/code semantics through the historical source identifiers:
 
-Status: **0.1.0-rc1 automated testing active**
+- `ECAT-001`
+- `ICAT-001`
+- `ECAT-ICAT-001`
+- `ECAT-ICAT-002`
 
-The repository now includes the first automated formal testing scaffold:
+The binding is recorded in `formalism/triform-counterpart-inventory.json` and `formalism/triform-manifest.json` and checked by `tools/validate_triform_manifest.py` plus `tests/test_triform_manifest.py`. It reuses existing schemas, examples, validators, round-trip evidence, completeness receipts, and the existing `.github/workflows/rc1-validation.yml`; it is not a replacement source formalism or a second validation control plane.
 
-- `schemas/ecat-profile.schema.json`
-- `schemas/icat-profile.schema.json`
-- `examples/ecat/pass_declared_experience_recoverable.json`
-- `examples/ecat/fail_missing_recoverability.json`
-- `examples/icat/pass_shared_understanding_recoverable.json`
-- `examples/icat/fail_missing_entities.json`
-- `examples/round-trip/ecat-to-bcat-to-gcat.json`
-- `examples/round-trip/icat-to-bcat-to-gcat.json`
-- `examples/existence/percent-existence-example.json`
-- `tools/validate_profiles.py`
-- `tools/check_expected.py`
-- `tests/expected/rc1_validation_report.json`
-- `tests/README.md`
-- `docs/glossary.md`
-- `docs/schema-boundaries.md`
-- `docs/release-candidate-0.1.0-rc1.md`
-- `docs/receipt-plan.md`
-- `RELEASE_CANDIDATE.md`
-- `github/workflows/rc1-validation.yml`
-- `iosnoperiod/github/workflows/rc1-validation.yml`
-- `iosnoperiod/README.md`
+Proof-candidate maturity remains bounded exactly as recorded by the source:
 
-Note: workflow paths above are displayed without the leading period for iOS compatibility. The canonical repository workflow path begins with a leading period.
+- `ECAT-PC-001` — `tested_candidate`
+- `ICAT-PC-001` — `tested_candidate`
+- `ECAT-ICAT-PC-001` — `bounded_candidate`
+
+Candidate status is not universal proof. Tri-Form validation is **validation-only** and has `NONE_VALIDATION_ONLY` authority effect.
+
+## Assumptions and vocabulary
+
+This repository uses the following working meanings:
+
+- **ECAT** — Emotional / Experiential Constraint Analysis.
+- **ICAT** — Interpersonal / Intuitive Constraint Analysis.
+- **BCAT** — Boundary Constraint Analysis.
+- **GCAT** — Governance Constraint Analysis.
+- **Admissibility** — whether a transition, claim, artifact, relationship, boundary, or state may carry standing under declared governance conditions.
+- **Continuity** — whether a state, identity, claim, artifact, relationship, or proof path remains reconstructable across a boundary.
+- **Standing** — the current admissible status of a transition, claim, state, or relationship at the moment it is evaluated.
+
+Earlier ECAT/ICAT phrasing treated ECAT as external continuity and ICAT as internal continuity. That reading is superseded for this repository. External/internal continuity may still appear in proof-path discussions, but this repository's canonical focus is the emotional, experiential, interpersonal, and intuitive origin of governance constraints.
+
+## Core distinction
+
+| Layer | Question | Expected output |
+| --- | --- | --- |
+| ECAT | Is the entity's declared internal/experiential state sufficiently reconstructable to support later boundary analysis? | Experiential standing profile |
+| ICAT | Are the inter-entity conditions sufficiently reconstructable to support later trust, delegation, witness, consent, or shared-meaning analysis? | Relational standing profile |
+| BCAT | Can the boundary remain recoverable without inverting the purpose of the system? | Boundary admissibility profile |
+| GCAT | Does governance authority exist now for the proposed transition? | `ALLOW`, `DENY`, or `FAIL-CLOSED` |
+
+In shorthand:
+
+```text
+ECAT / ICAT -> BCAT -> GCAT -> AE commit-time resolution where applicable
+```
+
+The arrows denote dependency/carriage, not transfer of authority.
+
+## Mathematical boundary
+
+`docs/MATHEMATICAL_NOTATION.md` defines bounded experiential and interaction standing profiles and structural validity predicates. Within this repository:
+
+```text
+authority(E) = authority(I) = 0
+reconstructable(q) != authority_now(q)
+```
+
+An observed, reconstructed, or replayed historical profile does not create present execution authority. ECAT/ICAT evidence remains pre-boundary support and does not replace downstream BCAT/GCAT/AE commit-time standing.
 
 ## Automated validation
 
-Validation runs automatically on:
+The canonical workflow is `.github/workflows/rc1-validation.yml`. It runs the existing profile, expected-output, schema-conformance, receipt, management, consumer, GCAT/BCAT intake, release-readiness, completion, and principle-completeness checks. Tri-Form validation and tests are integrated into this same workflow rather than creating a duplicate control plane.
 
-- push to `main`;
-- pull request;
-- workflow dispatch.
-
-The workflow runs:
-
-```bash
-python3 tools/validate_profiles.py
-python3 tools/check_expected.py
-```
-
-Expected RC1 result:
+The deterministic profile fixture baseline remains:
 
 ```text
 total fixtures: 4
@@ -72,257 +84,81 @@ invalid fixtures: 2
 expected comparison: expected_match
 ```
 
-Manual local execution remains available for debugging, but normal repo validation no longer depends on manual execution.
+The canonical handoff records hosted validation run/job `31147813783` / `92770919160` as successful for the completed source implementation. New Tri-Form work must establish its own exact-head hosted validation before merge; prior hosted evidence is not reused as proof of a later head.
 
-## Purpose
+## Historical principle semantics
 
-ECAT-ICAT exists to separate two questions that are often skipped or compressed into later governance decisions:
+`ECAT-001` — Declared experiential standing may inform later governance but cannot itself grant execution authority.
 
-1. **ECAT question:** What is happening inside the entity before governance is applied?
-2. **ICAT question:** What is happening between entities before a boundary or authority claim is formed?
+`ICAT-001` — Relational standing requires reconstructable declared entities, interaction context, shared-understanding context, and recoverability; intuition alone is not proof.
 
-This matters because emotional state, intuition, perception, coherence, trust, relationship continuity, and shared understanding can affect whether a proposed transition should ever become admissible.
+`ECAT-ICAT-001` — ECAT/ICAT outputs are pre-boundary support inputs and do not replace BCAT, GCAT, or final AE commit-time standing.
 
-A governance system that ignores ECAT/ICAT may still produce clean-looking decisions while missing the human and relational conditions that made the boundary unstable, coercive, unrecoverable, or purpose-inverting.
+`ECAT-ICAT-002` — Missing required coherence, consent, entity, context, recoverability, or evidence references must not be promoted to authoritative `ALLOW`; malformed or incomplete required input remains fail-closed under the bounded contract.
 
-## Core distinction
+## Minimum profile fields
 
-| Layer | Question | Expected output |
-| --- | --- | --- |
-| ECAT | Is the entity's internal state coherent enough to support a boundary or transition claim? | Experiential standing profile |
-| ICAT | Are the inter-entity conditions coherent enough to support trust, delegation, witness, consent, or shared meaning? | Relational standing profile |
-| BCAT | Can the boundary remain recoverable without inverting the purpose of the system? | Boundary admissibility profile |
-| GCAT | Does governance authority exist now for the proposed transition? | `ALLOW`, `DENY`, or `FAIL-CLOSED` |
+An ECAT profile declares an entity identifier, context, declared experience, coherence status, recoverability status, boundary relevance, validity window, limitations, and receipt reference.
 
-In shorthand:
+An ICAT profile declares the entities involved, interaction context, declared relationship context, shared-understanding status, trust relevance, recoverability status, boundary relevance, validity window, limitations, and receipt reference.
 
-```text
-ECAT / ICAT -> BCAT -> GCAT
-```
+The canonical schemas are `schemas/ecat-profile.schema.json` and `schemas/icat-profile.schema.json`.
 
-Meaning:
+## Existing implementation and evidence
 
-```text
-experience and intuition -> boundary formation -> governance admissibility
-```
+The repository preserves and reuses:
 
-## Relationship to Triad governance
+- positive and negative ECAT/ICAT fixtures;
+- ECAT/ICAT -> BCAT -> GCAT round-trip examples;
+- profile schemas and deterministic validators;
+- `tools/validate_profiles.py` and the existing validation/check tools;
+- `formalism/principle-registry.yaml`, `formalism/dependency-graph.yaml`, and `formalism/proof-candidates.yaml`;
+- `reports/ecat-icat-principle-completeness-validation.json`;
+- management, consumer, handoff, activation, readiness, and completion records;
+- the canonical `.github/workflows/rc1-validation.yml` hosted validation lane.
 
-Triad governance distinguishes proposal, commitment, and reconstruction:
+Tri-Form adds binding and drift-detection metadata around these existing surfaces; it does not duplicate or replace them.
 
-| Component | Core question | Function |
-| --- | --- | --- |
-| Transition Governance | Can this transition be considered? | Determines whether a proposed state change is structurally valid. |
-| Admissibility Governance | Can this transition be committed now? | Determines whether execution authority exists at the moment of commitment. |
-| Continuity Governance | Can this transition be reconstructed later? | Determines whether the decision path remains replayable, receipt-bound, and independently reviewable. |
+## Safety and non-authority posture
 
-ECAT/ICAT operate before the triad's commit-time decision hardens into authority. They help explain why a transition may look valid at the structural level while remaining unstable, coercive, unrecoverable, or inadmissible once human and relational constraints are examined.
+ECAT-ICAT does not claim to provide psychological diagnosis, emotional surveillance legitimacy, universal truth determination, certification of people or relationships, blanket relationship authority, or execution authority by itself.
 
-## Existence interpretation
+The bounded system must remain non-authoritative or fail closed when required evidence is missing, stale, contradictory, or unreconstructable; when coercion or consent conditions cannot be resolved under the applicable policy; when intuition is treated as proof without supporting context; or when historical standing is substituted for current commit-time authority.
 
-The expression:
+No ECAT/ICAT output may silently bypass downstream standing evaluation. No Tri-Form validation result promotes candidate mathematics into theorem proof, grants runtime authority, or creates publication/release authority.
 
-```text
-GCAT / BCAT : ECAT / ICAT : %Existence
-```
+## Relationship to Triad and commit-time governance
 
-is a governed existence formulation.
+Triad-style governance separates proposal, commitment, and reconstruction. ECAT/ICAT operate before the commit-time decision hardens into authority. They help preserve the human and relational conditions that later boundary and governance systems must evaluate, constrain, or fail closed around.
 
-`%Existence` is not merely whether something can be observed. It is the degree to which an entity, relationship, claim, transition, or state can be treated as existing under the relevant governance frame.
-
-A stronger existence claim requires alignment across:
-
-- **ECAT:** internal coherence, emotional standing, experiential standing, and meaning;
-- **ICAT:** relational coherence, trust, intuition, witness standing, and inter-entity continuity;
-- **BCAT:** boundary recoverability, constraint integrity, and non-inversion;
-- **GCAT:** governance standing, policy, delegation, authority, and admissibility.
-
-For commit-time effects, missing or failed layers should fail closed unless a policy explicitly defines a safe partial-standing condition.
-
-## Minimal model
-
-An ECAT/ICAT evaluation should preserve this shape:
+The critical commit-time question remains:
 
 ```text
-entity or interaction
-  -> declared context
-  -> experiential state
-  -> relational state
-  -> boundary condition
-  -> recoverability profile
-  -> admissibility relevance
-  -> continuity notes
-  -> receipt or record
+Does authority exist now, at the boundary where the transition would touch reality?
 ```
 
-The result must not be inferred from visibility, review, intent, historical approval, or external appearance alone.
+Emotional state, intuition, trust, relationship continuity, prior review, external evidence, and internal coherence may support that evaluation, but none automatically replace it.
 
-## Intended role in the ecosystem
+## Validation commands
 
-This repository should support:
-
-- vocabulary for emotional and experiential constraint analysis;
-- vocabulary for interpersonal and intuitive constraint analysis;
-- modeling of how human state affects boundary formation;
-- modeling of how relationship state affects trust, consent, delegation, witness standing, and shared meaning;
-- comparison between human-governance constraints and later admissibility decisions;
-- fail-closed treatment when coherence, recoverability, or authority cannot be reconstructed;
-- alignment across Admissible Existence, StegVerse, Standing-Proof-Engine, Triad governance, and related governance repos.
-
-## Non-goals
-
-This repository does not claim to provide:
-
-- psychological diagnosis;
-- emotional surveillance;
-- universal truth determination;
-- certification of people, relationships, or external systems;
-- endorsement of third-party frameworks;
-- runtime execution authority by itself;
-- replacement of policy, delegation, receipt, manifest, or commit-time admissibility layers;
-- private evaluation results unless explicitly scoped by a separate agreement.
-
-## Decision vocabulary
-
-ECAT/ICAT do not directly grant execution authority. They produce standing profiles that may support later BCAT/GCAT evaluation.
-
-When ECAT/ICAT output is carried into admissibility evaluation, use the same high-level result vocabulary:
-
-| Result | Meaning |
-| --- | --- |
-| `ALLOW` | The claim, state, relationship, boundary, or transition is admissible under the declared scope. |
-| `DENY` | The claim, state, relationship, boundary, or transition is not admissible under the declared scope. |
-| `FAIL-CLOSED` | The evaluator cannot establish enough standing to allow the transition. |
-
-A partial ECAT/ICAT failure should not become execution authority unless a policy explicitly defines that partial state as allowable.
-
-## Repository structure
-
-```text
-/
-  README.md
-  RELEASE_CANDIDATE.md
-  docs/
-    glossary.md
-    receipt-plan.md
-    release-candidate-0.1.0-rc1.md
-    schema-boundaries.md
-  schemas/
-    ecat-profile.schema.json
-    icat-profile.schema.json
-  examples/
-    ecat/
-      pass_declared_experience_recoverable.json
-      fail_missing_recoverability.json
-    icat/
-      pass_shared_understanding_recoverable.json
-      fail_missing_entities.json
-    existence/
-      percent-existence-example.json
-    round-trip/
-      ecat-to-bcat-to-gcat.json
-      icat-to-bcat-to-gcat.json
-  tests/
-    README.md
-    expected/
-      rc1_validation_report.json
-  tools/
-    validate_profiles.py
-    check_expected.py
-  github/workflows/
-    rc1-validation.yml
-  iosnoperiod/
-    README.md
-    github/workflows/
-      rc1-validation.yml
+```bash
+python3 tools/validate_profiles.py
+python3 tools/check_expected.py
+python3 tools/check_schema_conformance.py
+python3 tools/check_receipt_generation.py
+python3 tools/check_management_intake.py
+python3 tools/check_consumer_execution_plan.py
+python3 tools/check_consumer_acceptance_record.py
+python3 tools/check_management_handoff.py
+python3 tools/verify_gcat_bcat_intake.py
+python3 tools/check_release_ready.py
+python tools/validate_principle_completeness.py
+python tools/validate_triform_manifest.py
+python -m unittest tests/test_triform_manifest.py
 ```
 
-Note: `github/workflows/rc1-validation.yml` is displayed without the leading period for iOS compatibility. The canonical repository path begins with a leading period.
+## Release, publication, and reuse boundary
 
-## Minimum ECAT profile fields
+Repository implementation completeness and hosted validation do not themselves create a formal publication, ecosystem release, or runtime activation. Any downstream publication, release, Site/Publisher/wiki propagation, or Master Records transition requires separately admitted destination-owned work and its own evidence.
 
-An ECAT profile should declare:
-
-- entity identifier;
-- context;
-- declared experience;
-- coherence status;
-- recoverability status;
-- boundary relevance;
-- validity window;
-- limitations;
-- receipt reference.
-
-## Minimum ICAT profile fields
-
-An ICAT profile should declare:
-
-- entities involved;
-- relationship or interaction context;
-- declared relationship context;
-- shared-understanding status;
-- trust relevance;
-- recoverability status;
-- boundary relevance;
-- validity window;
-- limitations;
-- receipt reference.
-
-## Done criteria for first formal release
-
-The first formal release should be considered complete only when the repository includes:
-
-- canonical glossary;
-- ECAT profile schema;
-- ICAT profile schema;
-- shared existence/admissibility relevance schema;
-- at least one ECAT example;
-- at least one ICAT example;
-- one ECAT -> BCAT -> GCAT example;
-- one ICAT -> BCAT -> GCAT example;
-- one `%Existence` example;
-- deterministic validator output;
-- receipt examples for `ALLOW`, `DENY`, and `FAIL-CLOSED` when ECAT/ICAT output is carried into admissibility evaluation.
-
-## Current status
-
-Status: **Automated release candidate seed**
-
-The current repository state is sufficient for automated initial schema and fixture validation. It is not yet sufficient for a formal release claim.
-
-## Safety posture
-
-ECAT-ICAT should fail closed or remain non-authoritative when:
-
-- coercion cannot be ruled out;
-- consent is ambiguous;
-- emotional state is being used to override agency;
-- intuition is treated as proof without supporting context;
-- relationship standing is asserted but not reconstructable;
-- a boundary remains enforceable only while an operator is coherent;
-- maintaining the boundary blocks convergence to the intended state;
-- evidence references are missing or stale;
-- authority cannot be reconstructed;
-- external publication would imply broader standing than the evaluation supports.
-
-## Relationship to commit-time admissibility
-
-ECAT-ICAT should be treated as pre-boundary support for commit-time admissibility, not as a replacement for it.
-
-The critical question remains:
-
-```text
-Does authority still exist now, at the boundary where the transition would touch reality?
-```
-
-Emotional state, intuition, trust, relationship continuity, prior review, external evidence, and internal coherence can support that answer, but none of them automatically replace a commit-time standing determination.
-
-## License
-
-No license is declared in this README. Add a repository license before encouraging third-party reuse.
-
-## Maintainer note
-
-This repository should stay narrow.
-
-Do not let ECAT become emotional surveillance, and do not let ICAT become a blanket relationship-authority mechanism. Their value is in preserving the pre-boundary human and inter-entity conditions that later governance systems must either respect, constrain, or fail closed around.
+A repository license exists in `LICENSE`; third-party reuse remains subject to that license and the documented semantic/authority boundaries.
