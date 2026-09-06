@@ -6,99 +6,108 @@
 **Canonical issue:** `#2`  
 **Repository authority:** `docs/ECAT_ICAT_MIRROR_HANDOFF.md`  
 **Organization contract:** `Admissible-Existence/.github/docs/TRIFORM_FORMALISM_CONTRACT.md`  
-**Status:** PREFLIGHT_PASSED / SOURCE_BINDING_ACTIVE
+**Status:** BOUNDED_TRIFORM_IMPLEMENTED_PENDING_EXACT_HEAD_VALIDATION
 
 ## Purpose
 
 Bind the existing ECAT/ICAT source formalism across prose, mathematical, executable/code, and deterministic evidence forms while preserving historical source IDs `ECAT-001`, `ICAT-001`, `ECAT-ICAT-001`, and `ECAT-ICAT-002`, bounded proof-candidate maturity, source schemas/fixtures/validators, and authority boundaries.
 
-## Resolved canonical state
+## Machine preflight / canonical state
 
-`docs/ECAT_ICAT_MIRROR_HANDOFF.md` reports `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED`, implementation and validation claims `COMPLETE_RELEASED`, hosted `RC1 Validation` run/job `31147813783` / `92770919160` success, 4/4 principle completeness, goal activation `100%`, and repository-local archive readiness after central synchronization.
+Before functional mutation the lane resolved `docs/ECAT_ICAT_MIRROR_HANDOFF.md`, the central Tri-Form selection, current issue/PR collision state, organization-transition/Master Records boundaries, existing source validators/workflow, and README completeness.
 
-The central Tri-Form handoff selects `Admissible-Existence/ECAT-ICAT` as the next executable source after GCAT-BCAT registration. Canonical organization accounting is `11/32 = 34.375%` completed source migrations before this source migration.
+The canonical handoff reports `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED`, implementation and validation claims `COMPLETE_RELEASED`, hosted `RC1 Validation` run/job `31147813783` / `92770919160` success, 4/4 principle completeness, goal activation `100%`, and repository-local archive readiness after central synchronization.
 
-Historical source IDs:
+At admission time no open issue or pull request owned the proposed Tri-Form surfaces. Issue `#2` is the newly admitted source task. Existing issue `#1` remains closed completed.
+
+The central Tri-Form handoff selects ECAT-ICAT as the next executable source after GCAT-BCAT registration. Canonical organization accounting remains `11/32 = 34.375%` until this source migration is merged and separately registered centrally.
+
+Preflight result: `PASS`.
+
+## Preserved source identifiers and candidate maturity
 
 ```text
 ECAT-001
 ICAT-001
 ECAT-ICAT-001
 ECAT-ICAT-002
-```
 
-Proof-candidate maturity remains bounded:
-
-```text
 ECAT-PC-001       tested_candidate
 ICAT-PC-001       tested_candidate
 ECAT-ICAT-PC-001  bounded_candidate
 ```
 
-Candidate status is not universal proof.
+Candidate status remains bounded and is not universal proof.
 
-## Task / collision state
-
-At preflight time the repository had no open issues and no open pull requests. Issue `#2` is the newly admitted Tri-Form source task. Existing repository-local completeness issue `#1` is closed completed. No separate active source claim was found that owns the same root Tri-Form surfaces.
-
-Existing schemas, fixtures, round-trip examples, validators, management/consumer/release records, receipt/completion machinery, and `.github/workflows/rc1-validation.yml` are reused rather than rebuilt.
-
-## Master Records / cross-task coordination
-
-The Admissible-Existence singular formalism handoff remains the program authority. Organization transition and Master Records federation remain separately governed; this source binding emits no Master Records transition and creates no federation, release, publication, or runtime authority.
-
-AE remains final commit-time admissibility resolver where applicable. ECAT/ICAT standing is pre-boundary support evidence and must not replace BCAT/GCAT/AE commit-time standing.
-
-## Preserved semantics
+## Preserved semantics and authority boundaries
 
 ```text
 experiential standing != execution authority
 relational standing != execution authority
 ECAT/ICAT profiles are pre-boundary support inputs
+ECAT/ICAT do not replace BCAT/GCAT/AE commit-time standing
 reconstructable historical standing != authority_now
 missing required evidence must not become authoritative ALLOW
-psychological diagnosis = out of scope
-emotional surveillance authority = out of scope
-blanket relationship authority = out of scope
+psychological diagnosis authority = false
+emotional surveillance authority = false
+blanket relationship authority = false
 execution_authorized = false
 publication_authorized = false
 proofs_accepted = false
 final_cross_repository_validity = false
 historical_source_replacement = false
 workflow_authority_effect = NONE_VALIDATION_ONLY
+final_admissibility_authority = Admissible-Existence/AE
 ```
 
-## README completeness predicate — REQUIRED
+Organization transition and Master Records federation remain separately governed. This source binding emits no Master Records transition and creates no runtime, release, publication, credential, custody, or final admissibility authority.
 
-README impact is **REQUIRED**. The current README still states `0.1.0-rc1 automated testing active` and `Automated release candidate seed`, while the canonical handoff records hosted-validated implementation complete and released implementation/validation. Adding Tri-Form also changes repository-visible evidence interpretation.
+## README completeness predicate — SATISFIED IN CHANGE SET
 
-The same change set must reconcile README status and document the Tri-Form conformance layer without promoting bounded candidates into proofs or granting execution, publication, clinical, relational, or final admissibility authority.
+README impact was **REQUIRED** because the prior README still described `0.1.0-rc1 automated testing active` / an `Automated release candidate seed` while the canonical handoff records hosted-validated implementation complete. Tri-Form also adds repository-visible evidence interpretation.
 
-Preflight result: `PASS`.
+`README.md` is updated in this same source change set to:
 
-## Execution order
+- report `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED` while distinguishing it from theorem proof, formal publication/release, runtime execution, certification, and final admissibility;
+- document the four historical source IDs and the bounded Tri-Form layer;
+- preserve the two `tested_candidate` plus one `bounded_candidate` maturity states;
+- preserve pre-boundary standing, replay/current-authority separation, fail-closed missing evidence, and clinical/relational non-authority boundaries;
+- document that Tri-Form validation is validation-only and reuses the existing RC1 workflow.
 
-1. inventory exact prose/math/code/evidence counterparts for all four historical IDs;
-2. preserve proof-candidate maturity and non-authority semantics;
-3. reconcile README in this same source change set;
-4. install bounded Tri-Form manifest and deterministic validator/tests without replacing source semantics;
-5. extend existing `.github/workflows/rc1-validation.yml` rather than creating a duplicate validation control plane;
-6. regress existing RC1/profile/schema/receipt/completion/principle paths;
-7. validate exact branch head and repair only proven defects;
-8. reconcile source handoffs, merge, close issue `#2`, and register completion centrally.
+## Installed/reused Tri-Form surfaces
+
+New bounded surfaces:
+
+- `formalism/triform-counterpart-inventory.json` — exact prose/math/code/evidence counterparts for all four historical IDs;
+- `formalism/triform-manifest.json` — stable-ID, candidate-maturity, semantic-boundary, and authority binding;
+- `tools/validate_triform_manifest.py` — deterministic fail-closed conformance validator;
+- `tests/test_triform_manifest.py` — historical-ID, counterpart, non-authority, and validator regression tests;
+- `docs/ECAT_ICAT_TRIFORM_MIRROR_HANDOFF.md` — scoped continuation record.
+
+Updated existing surfaces:
+
+- `README.md` — required status/capability reconciliation;
+- `.github/workflows/rc1-validation.yml` — extended with Tri-Form validation/tests and explicit `NONE_VALIDATION_ONLY` authority declaration.
+
+Existing schemas, fixtures, round-trip examples, profile validator, completeness validator/receipt, management/consumer/readiness/completion records, and workflow are reused rather than duplicated.
 
 ## Completion denominator
 
 1. scoped handoff + machine preflight — COMPLETE;
-2. counterpart inventory + historical-ID/maturity disposition — PENDING;
-3. README completeness reconciliation — PENDING;
-4. Tri-Form manifest/binding structure — PENDING;
-5. deterministic validator/tests — PENDING;
-6. existing workflow/regression integration — PENDING;
+2. counterpart inventory + historical-ID/maturity disposition — COMPLETE;
+3. README completeness reconciliation — COMPLETE;
+4. Tri-Form manifest/binding structure — COMPLETE;
+5. deterministic validator/tests — COMPLETE;
+6. existing workflow/regression integration — COMPLETE;
 7. exact-head validation — PENDING;
 8. repository handoff reconciliation + merge — PENDING.
 
-Current bounded completion: `1/8 = 12.5%`.
+Current bounded completion: `6/8 = 75%`.
+Developed new/updated Tri-Form/control/documentation surfaces: `7`; scaffolding/stubs: `0`.
+
+## Exact next task
+
+Open the bounded PR, observe exact-head `RC1 Validation`, repair only directly proven defects, merge only while the exact current head is green and mergeable, reconcile this handoff and `docs/ECAT_ICAT_MIRROR_HANDOFF.md`, close issue `#2`, then register ECAT-ICAT completion centrally.
 
 ## User work
 
