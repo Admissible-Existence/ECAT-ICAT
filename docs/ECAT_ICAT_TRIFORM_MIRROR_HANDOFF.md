@@ -2,11 +2,11 @@
 
 **Goal ID:** `AEX-ECAT-ICAT-TRIFORM-001`  
 **Repository:** `Admissible-Existence/ECAT-ICAT`  
-**Branch:** `ecat-icat-triform-001`  
 **Canonical issue:** `#2`  
+**Source PR:** `#3` — COMPLETE_MERGED  
 **Repository authority:** `docs/ECAT_ICAT_MIRROR_HANDOFF.md`  
 **Organization contract:** `Admissible-Existence/.github/docs/TRIFORM_FORMALISM_CONTRACT.md`  
-**Status:** EXACT_HEAD_VALIDATED / MERGE_PENDING
+**Status:** BOUNDED_TRIFORM_COMPLETE_MERGED
 
 ## Purpose
 
@@ -18,9 +18,7 @@ Before functional mutation the lane resolved `docs/ECAT_ICAT_MIRROR_HANDOFF.md`,
 
 The canonical handoff reports `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED`, implementation and validation claims `COMPLETE_RELEASED`, hosted `RC1 Validation` run/job `31147813783` / `92770919160` success, 4/4 principle completeness, goal activation `100%`, and repository-local archive readiness after central synchronization.
 
-At admission time no open issue or pull request owned the proposed Tri-Form surfaces. Issue `#2` is the newly admitted source task. Existing issue `#1` remains closed completed.
-
-The central Tri-Form handoff selects ECAT-ICAT as the next executable source after GCAT-BCAT registration. Canonical organization accounting remains `11/32 = 34.375%` until this source migration is merged and separately registered centrally.
+At admission time no open issue or pull request owned the proposed Tri-Form surfaces. Issue `#2` became the admitted source task. Existing issue `#1` remained closed completed.
 
 Preflight result: `PASS`.
 
@@ -66,7 +64,7 @@ Organization transition and Master Records federation remain separately governed
 
 README impact was **REQUIRED** because the prior README still described `0.1.0-rc1 automated testing active` / an `Automated release candidate seed` while the canonical handoff records hosted-validated implementation complete. Tri-Form also adds repository-visible evidence interpretation.
 
-`README.md` is reconciled in this same source change set. It reports `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED` while explicitly distinguishing that state from theorem proof, formal publication/release, runtime execution, certification, clinical authority, and final admissibility. It documents the four historical source IDs, candidate maturity, validation-only Tri-Form semantics, fail-closed behavior, and reuse of the existing RC1 workflow.
+`README.md` was reconciled in the same source change set. It reports `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED` while explicitly distinguishing that state from theorem proof, formal publication/release, runtime execution, certification, clinical authority, and final admissibility. It documents the four historical source IDs, candidate maturity, validation-only Tri-Form semantics, fail-closed behavior, and reuse of the existing RC1 workflow.
 
 ## Installed/reused Tri-Form surfaces
 
@@ -81,7 +79,8 @@ New bounded surfaces:
 Updated existing surfaces:
 
 - `README.md` — required status/capability reconciliation;
-- `.github/workflows/rc1-validation.yml` — extended with Tri-Form validation/tests and explicit `NONE_VALIDATION_ONLY` authority declaration.
+- `.github/workflows/rc1-validation.yml` — extended with Tri-Form validation/tests and explicit `NONE_VALIDATION_ONLY` authority declaration;
+- `docs/ECAT_ICAT_MIRROR_HANDOFF.md` — parent source continuity reconciliation.
 
 Existing schemas, fixtures, round-trip examples, profile validator, completeness validator/receipt, management/consumer/readiness/completion records, and workflow remain source-owned and reused.
 
@@ -91,28 +90,15 @@ Initial PR exact head `2be01e9319a16aace377a758e1b3189fa13acff5` ran `RC1 Valida
 
 All source validation, principle completeness, Tri-Form validation, four Tri-Form regression tests, authority declaration, receipt generation, and completion-record generation passed. The run then failed only at the pre-existing `Persist principle completeness receipt` step because GitHub pull-request checkout is a detached merge ref and the unconditional `git push` had no branch target.
 
-The proven transport defect was repaired in commit `058d7bfa4725c7f7bd27e65772a03bca3cdc6685` by constraining receipt persistence to `push` events on `refs/heads/main`. This preserves the existing main-branch receipt persistence behavior while preventing an invalid PR detached-HEAD push attempt.
+The proven transport defect was repaired in commit `058d7bfa4725c7f7bd27e65772a03bca3cdc6685` by constraining receipt persistence to `push` events on `refs/heads/main`. This preserves existing main-branch receipt persistence while preventing an invalid PR detached-HEAD push attempt.
 
-Revalidated exact head `058d7bfa4725c7f7bd27e65772a03bca3cdc6685`:
+Revalidated repaired head `058d7bfa4725c7f7bd27e65772a03bca3cdc6685` through run/job `34020985034` / `101453406710` — SUCCESS.
 
-```text
-RC1 Validation run: 34020985034
-job: 101453406710
-conclusion: SUCCESS
-existing profile/schema/receipt/management/consumer/GCAT-BCAT/readiness checks: SUCCESS
-principle completeness: SUCCESS
-Tri-Form validator: valid=true, findings=[]
-principle_count: 4
-principle_ids: ECAT-001, ICAT-001, ECAT-ICAT-001, ECAT-ICAT-002
-proof-candidate maturity: tested_candidate, tested_candidate, bounded_candidate
-Tri-Form tests: 4/4 PASS
-workflow_authority_effect: NONE_VALIDATION_ONLY
-final_admissibility_authority: Admissible-Existence/AE
-receipt persistence on PR: SKIPPED as intended
-all three artifact uploads: SUCCESS
-```
+After parent-handoff reconciliation, final exact source head `6db3583dfc19a3a21493c3812271b0c67cb50d69` passed `RC1 Validation` run/job `34021050870` / `101453582196` — SUCCESS. Every pre-existing source check, principle-completeness check, Tri-Form validator, four Tri-Form regression tests, authority declaration, receipt generation, completion record, and artifact upload succeeded; PR receipt persistence was skipped as intended.
 
-No semantic fixture, source principle, or candidate maturity was rewritten to repair the transport defect.
+PR `#3` was mergeable at that exact head and squash merged as `3b08649ecc69840e019650e8d4048b6653c292fe`.
+
+No semantic fixture, source principle, candidate maturity, or authority boundary was rewritten to repair the transport defect.
 
 ## Completion denominator
 
@@ -123,14 +109,14 @@ No semantic fixture, source principle, or candidate maturity was rewritten to re
 5. deterministic validator/tests — COMPLETE;
 6. existing workflow/regression integration — COMPLETE;
 7. exact-head validation — COMPLETE;
-8. repository handoff reconciliation + merge — PENDING.
+8. repository handoff reconciliation + merge — COMPLETE.
 
-Current bounded completion: `7/8 = 87.5%`.
-Developed new/updated Tri-Form/control/documentation surfaces: `7`; scaffolding/stubs: `0`.
+Current bounded completion: `8/8 = 100%`.
+Developed new/updated Tri-Form/control/documentation surfaces: `8`; scaffolding/stubs: `0`.
 
 ## Exact next task
 
-Reconcile `docs/ECAT_ICAT_MIRROR_HANDOFF.md` on this branch, revalidate the resulting exact current head, merge only while green and mergeable, close issue `#2`, then register ECAT-ICAT completion centrally.
+Close issue `#2` and register the completed ECAT-ICAT source migration in `Admissible-Existence/.github` through a separately preflighted central accounting refresh. Do not infer organization registration merely from this source merge.
 
 ## User work
 
