@@ -1,0 +1,40 @@
+{
+  "schema": "admissible-existence.ecat-icat.triform-counterpart-inventory/v1",
+  "goal_id": "AEX-ECAT-ICAT-TRIFORM-001",
+  "repository": "Admissible-Existence/ECAT-ICAT",
+  "historical_source_replacement": false,
+  "bindings": [
+    {
+      "id": "ECAT-001",
+      "prose": ["README.md", "formalism/principle-registry.yaml"],
+      "mathematics": ["docs/MATHEMATICAL_NOTATION.md"],
+      "code": ["schemas/ecat-profile.schema.json", "tools/validate_profiles.py"],
+      "evidence": ["examples/ecat/pass_declared_experience_recoverable.json", "examples/ecat/fail_missing_recoverability.json", "reports/ecat-icat-principle-completeness-validation.json"],
+      "semantic_boundary": "declared experiential standing may inform later governance but does not grant execution authority"
+    },
+    {
+      "id": "ICAT-001",
+      "prose": ["README.md", "formalism/principle-registry.yaml"],
+      "mathematics": ["docs/MATHEMATICAL_NOTATION.md"],
+      "code": ["schemas/icat-profile.schema.json", "tools/validate_profiles.py"],
+      "evidence": ["examples/icat/pass_shared_understanding_recoverable.json", "examples/icat/fail_missing_entities.json", "reports/ecat-icat-principle-completeness-validation.json"],
+      "semantic_boundary": "relational standing requires reconstructable entity and interaction context and does not grant execution authority"
+    },
+    {
+      "id": "ECAT-ICAT-001",
+      "prose": ["README.md", "formalism/principle-registry.yaml", "docs/WHOLE_REPO_THEORY_MAP.md"],
+      "mathematics": ["docs/MATHEMATICAL_NOTATION.md"],
+      "code": ["tools/verify_gcat_bcat_intake.py", "tools/validate_profiles.py"],
+      "evidence": ["examples/round-trip/ecat-to-bcat-to-gcat.json", "examples/round-trip/icat-to-bcat-to-gcat.json", "reports/ecat-icat-principle-completeness-validation.json"],
+      "semantic_boundary": "pre-boundary ECAT/ICAT evidence remains distinct from downstream BCAT/GCAT/AE commit-time admissibility"
+    },
+    {
+      "id": "ECAT-ICAT-002",
+      "prose": ["README.md", "formalism/principle-registry.yaml", "docs/FALSIFICATION_AND_LIMITS.md"],
+      "mathematics": ["docs/MATHEMATICAL_NOTATION.md"],
+      "code": ["tools/validate_profiles.py", "tools/check_expected.py"],
+      "evidence": ["tests/expected/rc1_validation_report.json", "examples/ecat/fail_missing_recoverability.json", "examples/icat/fail_missing_entities.json", "reports/ecat-icat-principle-completeness-validation.json"],
+      "semantic_boundary": "missing required coherence, entity, context, or recoverability evidence cannot be promoted to authoritative ALLOW"
+    }
+  ]
+}

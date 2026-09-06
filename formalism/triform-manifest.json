@@ -1,0 +1,52 @@
+{
+  "schema": "admissible-existence.triform-manifest/v1",
+  "goal_id": "AEX-ECAT-ICAT-TRIFORM-001",
+  "repository": "Admissible-Existence/ECAT-ICAT",
+  "maturity": "EXECUTABLY_FORMALIZED",
+  "historical_source_replacement": false,
+  "final_cross_repository_validity": false,
+  "authority": {
+    "execution_authorized": false,
+    "publication_authorized": false,
+    "proofs_accepted": false,
+    "workflow_authority_effect": "NONE_VALIDATION_ONLY",
+    "final_admissibility_authority": "Admissible-Existence/AE"
+  },
+  "semantic_boundaries": {
+    "experiential_standing_is_execution_authority": false,
+    "relational_standing_is_execution_authority": false,
+    "ecat_icat_replace_commit_time_admissibility": false,
+    "replayed_historical_standing_is_present_authority": false,
+    "missing_required_evidence_is_authoritative_allow": false,
+    "psychological_diagnosis_authority": false,
+    "emotional_surveillance_authority": false,
+    "blanket_relationship_authority": false
+  },
+  "proof_candidates": [
+    {"id": "ECAT-PC-001", "maturity": "tested_candidate", "universal_proof": false},
+    {"id": "ICAT-PC-001", "maturity": "tested_candidate", "universal_proof": false},
+    {"id": "ECAT-ICAT-PC-001", "maturity": "bounded_candidate", "universal_proof": false}
+  ],
+  "principles": [
+    {
+      "id": "ECAT-001",
+      "binding_state": "BOUND_CANDIDATE",
+      "counterpart_inventory": "formalism/triform-counterpart-inventory.json"
+    },
+    {
+      "id": "ICAT-001",
+      "binding_state": "BOUND_CANDIDATE",
+      "counterpart_inventory": "formalism/triform-counterpart-inventory.json"
+    },
+    {
+      "id": "ECAT-ICAT-001",
+      "binding_state": "BOUND_CANDIDATE",
+      "counterpart_inventory": "formalism/triform-counterpart-inventory.json"
+    },
+    {
+      "id": "ECAT-ICAT-002",
+      "binding_state": "BOUND_CANDIDATE",
+      "counterpart_inventory": "formalism/triform-counterpart-inventory.json"
+    }
+  ]
+}
