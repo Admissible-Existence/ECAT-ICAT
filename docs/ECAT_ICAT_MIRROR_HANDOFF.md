@@ -29,7 +29,7 @@ The repository already contained a mature RC1 validation stack, including:
 - `ARCHIVE_READY.json`, `GOAL_ACTIVATION*.json`, consumer records, handoff packet, release-candidate record, and completion machinery;
 - `.github/workflows/rc1-validation.yml`.
 
-These were preserved as canonical implementation evidence rather than rebuilt.
+These remain canonical implementation evidence rather than being rebuilt.
 
 ## Organization completeness surfaces installed
 
@@ -91,11 +91,58 @@ The workflow persisted `reports/ecat-icat-principle-completeness-validation.json
 - The repository does not claim psychological diagnosis, emotional surveillance legitimacy, universal trust/coherence measurement, or blanket relationship authority.
 - Missing required evidence remains fail-closed under the existing encoded contract.
 
+## Tri-Form source binding — AEX-ECAT-ICAT-TRIFORM-001
+
+Issue `#2` admits a bounded Tri-Form source-binding lane under the organization Tri-Form contract. The lane preserves the historical source IDs:
+
+```text
+ECAT-001
+ICAT-001
+ECAT-ICAT-001
+ECAT-ICAT-002
+```
+
+It also preserves source proof-candidate maturity without promotion:
+
+```text
+ECAT-PC-001       tested_candidate
+ICAT-PC-001       tested_candidate
+ECAT-ICAT-PC-001  bounded_candidate
+```
+
+Installed bounded Tri-Form surfaces are:
+
+- `docs/ECAT_ICAT_TRIFORM_MIRROR_HANDOFF.md`;
+- `formalism/triform-counterpart-inventory.json`;
+- `formalism/triform-manifest.json`;
+- `tools/validate_triform_manifest.py`;
+- `tests/test_triform_manifest.py`;
+- reconciled `README.md`;
+- extended `.github/workflows/rc1-validation.yml`.
+
+The README reconciliation is required and records the canonical `IMPLEMENTATION_COMPLETE_HOSTED_VALIDATED` source state while explicitly distinguishing it from theorem proof, formal publication/release, runtime execution, certification, clinical authority, and final admissibility.
+
+Initial Tri-Form PR head `2be01e9319a16aace377a758e1b3189fa13acff5` passed all source, completeness, Tri-Form, and regression semantics but exposed a pre-existing workflow transport defect: the principle-completeness persistence step attempted `git push` from the detached pull-request merge ref. No semantic failure was observed. Commit `058d7bfa4725c7f7bd27e65772a03bca3cdc6685` repairs only that defect by running receipt persistence on `push` to `refs/heads/main`.
+
+Revalidation evidence for exact head `058d7bfa4725c7f7bd27e65772a03bca3cdc6685`:
+
+- `RC1 Validation` run `34020985034`;
+- job `101453406710`;
+- conclusion `success`;
+- all pre-existing profile/schema/receipt/management/consumer/GCAT-BCAT/readiness/completeness checks: success;
+- Tri-Form validator: `valid=true`, findings empty, four exact historical IDs;
+- Tri-Form tests: 4/4 PASS;
+- authority declaration: `NONE_VALIDATION_ONLY`, execution/publication/proof acceptance false, AE final admissibility authority retained;
+- receipt persistence on PR: skipped as intended;
+- all artifact uploads: success.
+
+The Tri-Form lane does not replace source mathematics, schemas, fixtures, validators, receipts, or existing workflow ownership. It creates no theorem proof, execution authority, publication authority, runtime, credential, custody, Master Records transition, final cross-repository validity, psychological/clinical authority, or blanket relationship authority.
+
 ## Cross-repository dependencies
 
-- `Admissible-Existence/Triad` consumes bounded ECAT/ICAT context and is already complete for its source task;
-- `Admissible-Existence/GCAT-BCAT` consumes bounded standing/context at commit gating and is already complete for its root source task;
-- `Admissible-Existence/AE` remains final admissibility resolution and retains a separately claimed publication/review lane;
+- `Admissible-Existence/Triad` consumes bounded ECAT/ICAT context and is complete for its source task;
+- `Admissible-Existence/GCAT-BCAT` consumes bounded standing/context at commit gating and is complete for its repository-root source task;
+- `Admissible-Existence/AE` remains final admissibility resolution and retains separately governed work;
 - downstream propagation requires separately admitted destination-owned work.
 
 ## Validation commands
@@ -112,33 +159,36 @@ python3 tools/check_management_handoff.py
 python3 tools/verify_gcat_bcat_intake.py
 python3 tools/check_release_ready.py
 python tools/validate_principle_completeness.py
+python tools/validate_triform_manifest.py
+python -m unittest tests/test_triform_manifest.py
 ```
 
-Hosted success is evidenced by run/job/log/artifact inspection above; local commands alone are not treated as hosted proof.
+Hosted success is evidenced by run/job/log/artifact inspection; local commands alone are not treated as hosted proof.
 
 ## Machine-owned continuation
 
-- `.github/workflows/rc1-validation.yml` owns regression validation for future ECAT/ICAT changes;
+- `.github/workflows/rc1-validation.yml` owns future root regression validation;
 - `Admissible-Existence/.github` owns organization routing and completion-state preservation;
-- downstream consumers own any separately admitted propagation or integration tasks.
+- downstream consumers own separately admitted propagation or integration tasks.
 
 ## Session consolidation
 
 `MERGED INTO: Admissible-Existence/ECAT-ICAT/docs/ECAT_ICAT_MIRROR_HANDOFF.md`
 
-No ECAT/ICAT requirement from this session remains only in chat. Repository-local implementation and validation work no longer requires a dedicated session.
+No prior ECAT/ICAT completeness requirement remains only in chat. The new Tri-Form lane is separately durable in `docs/ECAT_ICAT_TRIFORM_MIRROR_HANDOFF.md` and must be completed through its exact-head merge/central-registration sequence.
 
 ## Archive conditions
 
-Repository-local ECAT/ICAT principle completeness is archive-safe after issue `#1` is closed and central routing records this final evidence. Future reopening requires direct regression evidence or a separately admitted consumer/propagation task.
+The prior repository-local ECAT/ICAT principle-completeness task remains archive-safe. The new Tri-Form source-binding lane is archive-safe only after its exact current head is validated, PR is merged, issue `#2` is closed, and central `.github` routing registers the source migration. No Decision Envelope or unrelated downstream work is implied.
 
 ## Metrics
 
-- developed completeness files: 8/8 including handoff, six adapters, and executable validator;
-- scaffolding/stubs: 0;
-- missing required completeness surfaces: 0;
-- validation: 3/3 evidence classes satisfied (deterministic RC1 behavior, completeness validation/receipt, hosted run/job/log/artifacts);
-- integration: 3/3 (existing RC1 workflow, receipt persistence, central-transfer readiness);
-- goal activation: 100%;
-- session consolidation: 1/1 ECAT/ICAT goal durably transferred;
-- repository-local archive readiness: true after central synchronization.
+- prior developed completeness files: 8/8 including handoff, six adapters, and executable validator;
+- prior scaffolding/stubs: 0;
+- missing required prior completeness surfaces: 0;
+- prior validation: 3/3 evidence classes satisfied;
+- prior integration: 3/3;
+- prior goal activation: 100%;
+- Tri-Form bounded lane: 7/8 complete pending final exact-head validation after parent-handoff reconciliation and merge;
+- Tri-Form developed new/updated surfaces: 7;
+- Tri-Form scaffolding/stubs: 0.
