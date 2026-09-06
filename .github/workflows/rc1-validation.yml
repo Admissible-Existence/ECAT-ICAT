@@ -89,6 +89,7 @@ jobs:
         run: python3 tools/write_completion_record.py
 
       - name: Persist principle completeness receipt
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git config user.name "admissible-existence-ecat-icat-worker"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
